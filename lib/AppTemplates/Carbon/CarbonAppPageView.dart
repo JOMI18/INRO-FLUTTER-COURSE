@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class LoanPageView extends StatefulWidget {
   const LoanPageView({super.key});
@@ -8,6 +9,8 @@ class LoanPageView extends StatefulWidget {
 }
 
 class _LoanPageViewState extends State<LoanPageView> {
+  final PageController _loanController = PageController();
+
   final List applyLoan = [
     {
       "title": "Provide a bank statement",
@@ -56,306 +59,355 @@ class _LoanPageViewState extends State<LoanPageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: PageView(
-      scrollDirection: Axis.horizontal,
-      children: [
-        Column(children: [
-          Container(
-            height: 440,
-            width: 400,
-            color: const Color.fromARGB(133, 217, 200, 248),
-            // child: Image.file("asse"),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          Container(child: const Text("Scroll Animation")),
-          const SizedBox(
-            height: 16,
-          ),
-          Container(
-            width: 115,
-            height: 23,
-            decoration: BoxDecoration(
-                color: const Color.fromARGB(174, 255, 220, 231),
-                borderRadius: BorderRadius.circular(50)),
-            child: const Text(
-              "Welcome guide",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.pink,
+      body: PageView(
+        controller: _loanController, // Pass the PageController to the PageView
+
+        scrollDirection: Axis.horizontal,
+        children: [
+          Column(children: [
+            Container(
+              height: 440,
+              width: 400,
+              color: const Color.fromARGB(133, 217, 200, 248),
+              child: Image.network(
+                "https://assets-global.website-files.com/6453bf08503f6d73d5ffe98e/64634dfeee6236743038f41e_savings%20phone%20screen.webp",
+                fit: BoxFit.cover,
+                height: 440,
+                width: 400,
               ),
             ),
-          ),
-          const SizedBox(
-            height: 2,
-          ),
-          const Text(
-            "Apply for a Loan",
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
-          ),
-          Expanded(
-            child: ListView.builder(
-                // shrinkWrap: true,
-                itemCount: applyLoan.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: const CircleAvatar(
-                        radius: 12,
-                        backgroundColor:
-                            Color.fromARGB(161, 104, 58, 183),
-                        child: Icon(
-                          Icons.check,
-                          color: Color.fromARGB(234, 58, 3, 155),
-                          size: 18,
-                        )),
-                    title: Text(applyLoan[index]["title"]),
-                    // trailing: Icon(applyLoan[index]["icon"]),
-                  );
-                }),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 73, 22, 161),
-                  foregroundColor: Colors.white,
-                  elevation: 5,
-                  padding: const EdgeInsets.all(12),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  )),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Next"),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Icon(Icons.arrow_right_alt_outlined)
-                ],
+            const SizedBox(
+              height: 8,
+            ),
+            Container(
+                child: SmoothPageIndicator(
+              controller: _loanController,
+              count: 3,
+              effect: WormEffect(dotHeight: 10, dotWidth: 10),
+            )),
+            const SizedBox(
+              height: 16,
+            ),
+            Container(
+              width: 115,
+              height: 23,
+              decoration: BoxDecoration(
+                  color: const Color.fromARGB(174, 255, 220, 231),
+                  borderRadius: BorderRadius.circular(50)),
+              child: const Text(
+                "Welcome guide",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.pink,
+                ),
               ),
             ),
-          ),
-        ]),
-        Column(children: [
-          Container(
-            height: 440,
-            width: 400,
-            color: const Color.fromARGB(133, 217, 200, 248),
-            // child: Image.file("asse"),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          Container(child: const Text("Scroll Animation")),
-          const SizedBox(
-            height: 16,
-          ),
-          Container(
-            width: 115,
-            height: 23,
-            decoration: BoxDecoration(
-                color: const Color.fromARGB(174, 255, 220, 231),
-                borderRadius: BorderRadius.circular(50)),
-            child: const Text(
-              "Welcome guide",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.pink,
+            const SizedBox(
+              height: 2,
+            ),
+            const Text(
+              "Apply for a Loan",
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
+            ),
+            Expanded(
+              child: ListView.builder(
+                  // shrinkWrap: true,
+                  itemCount: applyLoan.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      leading: const CircleAvatar(
+                          radius: 12,
+                          backgroundColor: Color.fromARGB(161, 104, 58, 183),
+                          child: Icon(
+                            Icons.check,
+                            color: Color.fromARGB(234, 58, 3, 155),
+                            size: 18,
+                          )),
+                      title: Text(applyLoan[index]["title"]),
+                      // trailing: Icon(applyLoan[index]["icon"]),
+                    );
+                  }),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 73, 22, 161),
+                    foregroundColor: Colors.white,
+                    elevation: 5,
+                    padding: const EdgeInsets.all(12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    )),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Next"),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Icon(Icons.arrow_right_alt_outlined)
+                  ],
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 2,
-          ),
-          const Text(
-            "Accept Offer",
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
-          ),
-          Expanded(
-            child: ListView.builder(
-                // shrinkWrap: true,
-                itemCount: acceptOffer.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: const CircleAvatar(
-                        radius: 12,
-                        backgroundColor:
-                            Color.fromARGB(161, 104, 58, 183),
-                        child: Icon(
-                          Icons.check,
-                          color: Color.fromARGB(234, 58, 3, 155),
-                          size: 18,
-                        )),
-                    title: Text(acceptOffer[index]["title"]),
-                  );
-                }),
-          ),
-          Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(235, 225, 198, 255),
-                        foregroundColor: const Color.fromARGB(255, 90, 3, 213),
-                        elevation: 5,
-                        fixedSize: const Size(100, 50), // Set the width and height
-
-                        padding: const EdgeInsets.all(12),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        )),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.arrow_back_sharp),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text("Back"),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(255, 73, 22, 161),
-                        foregroundColor: Colors.white,
-                        elevation: 5,
-                        fixedSize: const Size(260, 50), // Set the width and height
-
-                        padding: const EdgeInsets.all(10),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        )),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Next"),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Icon(Icons.arrow_right_alt_outlined)
-                      ],
-                    ),
-                  ),
-                ],
-              )),
-        ]),
-        Column(children: [
-          Container(
-            height: 440,
-            width: 400,
-            color: const Color.fromARGB(133, 217, 200, 248),
-            // child: Image.file("asse"),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          Container(child: const Text("Scroll Animation")),
-          const SizedBox(
-            height: 16,
-          ),
-          Container(
-            width: 115,
-            height: 23,
-            decoration: BoxDecoration(
-                color: const Color.fromARGB(174, 255, 220, 231),
-                borderRadius: BorderRadius.circular(50)),
-            child: const Text(
-              "Welcome guide",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.pink,
+          ]),
+          Column(children: [
+            Container(
+              height: 440,
+              width: 400,
+              color: const Color.fromARGB(133, 217, 200, 248),
+              child: Image.network(
+                "https://www.benjamindada.com/content/images/dadabenblog/2020/07/carbon-financial-result-chijioke-dozie-min-1.jpg",
+                fit: BoxFit.cover,
               ),
             ),
-          ),
-          const SizedBox(
-            height: 2,
-          ),
-          const Text(
-            "Repay your loan",
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
-          ),
-          Expanded(
-            child: ListView.builder(
-                // shrinkWrap: true,
-                itemCount: repayLoan.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: const CircleAvatar(
-                        radius: 12,
-                        backgroundColor:
-                            Color.fromARGB(161, 104, 58, 183),
-                        child: Icon(
-                          Icons.check,
-                          color: Color.fromARGB(234, 58, 3, 155),
-                          size: 18,
-                        )),
-                    title: Text(repayLoan[index]["title"]),
-                  );
-                }),
-          ),
-          Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(235, 225, 198, 255),
-                        foregroundColor: const Color.fromARGB(255, 90, 3, 213),
-                        elevation: 5,
-                        fixedSize: const Size(100, 50), // Set the width and height
+            const SizedBox(
+              height: 8,
+            ),
+            Container(
+                child: SmoothPageIndicator(
+              controller: _loanController,
+              count: 3,
+              effect: WormEffect(dotHeight: 10, dotWidth: 10),
+            )),
+            const SizedBox(
+              height: 16,
+            ),
+            Container(
+              width: 115,
+              height: 23,
+              decoration: BoxDecoration(
+                  color: const Color.fromARGB(174, 255, 220, 231),
+                  borderRadius: BorderRadius.circular(50)),
+              child: const Text(
+                "Welcome guide",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.pink,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 2,
+            ),
+            const Text(
+              "Accept Offer",
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
+            ),
+            Expanded(
+              child: ListView.builder(
+                  // shrinkWrap: true,
+                  itemCount: acceptOffer.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      leading: const CircleAvatar(
+                          radius: 12,
+                          backgroundColor: Color.fromARGB(161, 104, 58, 183),
+                          child: Icon(
+                            Icons.check,
+                            color: Color.fromARGB(234, 58, 3, 155),
+                            size: 18,
+                          )),
+                      title: Text(acceptOffer[index]["title"]),
+                    );
+                  }),
+            ),
+            Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Row(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(235, 225, 198, 255),
+                          foregroundColor:
+                              const Color.fromARGB(255, 90, 3, 213),
+                          elevation: 5,
+                          fixedSize:
+                              const Size(100, 50), // Set the width and height
 
-                        padding: const EdgeInsets.all(12),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        )),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.arrow_back_sharp),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text("Back"),
-                      ],
+                          padding: const EdgeInsets.all(12),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          )),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.arrow_back_sharp),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text("Back"),
+                        ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(255, 73, 22, 161),
-                        foregroundColor: Colors.white,
-                        elevation: 5,
-                        fixedSize: const Size(260, 50), // Set the width and height
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(255, 73, 22, 161),
+                          foregroundColor: Colors.white,
+                          elevation: 5,
+                          fixedSize:
+                              const Size(260, 50), // Set the width and height
 
-                        padding: const EdgeInsets.all(10),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        )),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Finish"),
-                      ],
+                          padding: const EdgeInsets.all(10),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          )),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Next"),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Icon(Icons.arrow_right_alt_outlined)
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              )),
-        ]),
-      ],
-    ));
+                  ],
+                )),
+          ]),
+          Column(children: [
+            Container(
+              height: 440,
+              width: 400,
+              color: const Color.fromARGB(133, 217, 200, 248),
+              child: Image.network(
+                "https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/4cc9634a-478b-4005-9617-ccb2cb00a198/2295681047/carbon-savings-loans-bills-screenshot.png",
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            Container(
+                child: SmoothPageIndicator(
+              controller: _loanController,
+              count: 3,
+              effect: WormEffect(dotHeight: 10, dotWidth: 10),
+            )),
+            const SizedBox(
+              height: 16,
+            ),
+            Container(
+              width: 115,
+              height: 23,
+              decoration: BoxDecoration(
+                  color: const Color.fromARGB(174, 255, 220, 231),
+                  borderRadius: BorderRadius.circular(50)),
+              child: const Text(
+                "Welcome guide",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.pink,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 2,
+            ),
+            const Text(
+              "Repay your loan",
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
+            ),
+            Expanded(
+              child: ListView.builder(
+                  // shrinkWrap: true,
+                  itemCount: repayLoan.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      leading: const CircleAvatar(
+                          radius: 12,
+                          backgroundColor: Color.fromARGB(161, 104, 58, 183),
+                          child: Icon(
+                            Icons.check,
+                            color: Color.fromARGB(234, 58, 3, 155),
+                            size: 18,
+                          )),
+                      title: Text(repayLoan[index]["title"]),
+                    );
+                  }),
+            ),
+            Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Row(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(235, 225, 198, 255),
+                          foregroundColor:
+                              const Color.fromARGB(255, 90, 3, 213),
+                          elevation: 5,
+                          fixedSize:
+                              const Size(100, 50), // Set the width and height
+
+                          padding: const EdgeInsets.all(12),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          )),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.arrow_back_sharp),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text("Back"),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(255, 73, 22, 161),
+                          foregroundColor: Colors.white,
+                          elevation: 5,
+                          fixedSize:
+                              const Size(260, 50), // Set the width and height
+
+                          padding: const EdgeInsets.all(10),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          )),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Finish"),
+                        ],
+                      ),
+                    ),
+                  ],
+                )),
+          ]),
+        ],
+      ),
+      floatingActionButton: Container(
+        width: 35,
+        height: 35,
+        child: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: Color.fromARGB(217, 172, 172, 172),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50.0),
+          ),
+          child: Icon(Icons.close),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+    );
   }
 }

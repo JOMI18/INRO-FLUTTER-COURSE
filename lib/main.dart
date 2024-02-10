@@ -62,13 +62,13 @@ class MyApp extends StatelessWidget {
       // title: 'Hello ',
       // ),
 
-      home: const PageView(
-        title: 'Hello ',
-      ),
-
-      // home: const CarbonLoan(
-      //   title: 'Carbon ',
+      // home: const PageView(
+      //   title: 'Hello ',
       // ),
+
+      home: const CarbonLoan(
+        title: 'Carbon ',
+      ),
     );
   }
 }
@@ -117,20 +117,21 @@ class MyApp extends StatelessWidget {
 //   }
 // }
 
-class PageView extends StatelessWidget {
-  const PageView({super.key, title});
+// class PageView extends StatelessWidget {
+//   const PageView({super.key, title});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(body: PageViewWidget());
-  }
-}
-// class CarbonLoan extends StatelessWidget {
-//   const CarbonLoan({super.key, title});
 //   @override
 //   Widget build(BuildContext context) {
-//     return const Scaffold(
-//       body: LoanPageView(),
-//     );
+//     return Scaffold(body: PageViewWidget());
 //   }
 // }
+
+class CarbonLoan extends StatelessWidget {
+  const CarbonLoan({super.key, title});
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: LoanPageView(),
+    );
+  }
+}
