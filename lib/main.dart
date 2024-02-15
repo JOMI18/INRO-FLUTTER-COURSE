@@ -1,5 +1,7 @@
 // import 'dart:math';
 
+import "package:classapp/AppTemplates/Carbon/CarbonAddMoney.dart";
+import "package:classapp/AppTemplates/Carbon/CarbonAirtime.dart";
 import "package:classapp/AppTemplates/Carbon/CarbonAppHome.dart";
 import "package:classapp/AppTemplates/Carbon/CarbonAppPageView.dart";
 import 'package:classapp/AppTemplates/FormLayout.dart';
@@ -44,7 +46,14 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       darkTheme: ThemeData.dark(), // Dark theme
-      themeMode: ThemeMode.light, // Default to light mode
+      themeMode: ThemeMode.light,
+      initialRoute: "/",
+      routes: {
+        "/": (context) => CarbonApp(),
+        'loan': (context) => CarbonLoan(),
+        'addMoney': (context) => CarbonAddMoney(),
+        'airtime': (context) => CarbonAirtime()
+      }, // Default to light mode
 
       // home: ThePureMathApp(
       //   title: 'Pure math',
@@ -58,17 +67,17 @@ class MyApp extends StatelessWidget {
       //   title: 'SwitchesNSliders ',
       // ),
 
-      //  home: CarbonApp(
-      // title: 'Hello ',
+      // home: CarbonApp(
+      //   title: 'Hello ',
       // ),
 
       // home: const PageView(
       //   title: 'Hello ',
       // ),
 
-      home: const CarbonLoan(
-        title: 'Carbon ',
-      ),
+      // home: const CarbonLoan(
+      //   title: 'Carbon ',
+      // ),
     );
   }
 }
@@ -107,19 +116,18 @@ class MyApp extends StatelessWidget {
 //   }
 // }
 
-// class CarbonApp extends StatelessWidget {
-//   const CarbonApp({super.key, title});
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: CarbonAppWidget(),
-//     );
-//   }
-// }
+class CarbonApp extends StatelessWidget {
+  const CarbonApp({super.key, title});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: CarbonAppWidget(),
+    );
+  }
+}
 
 // class PageView extends StatelessWidget {
 //   const PageView({super.key, title});
-
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(body: PageViewWidget());
