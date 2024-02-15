@@ -4,6 +4,7 @@ import "package:classapp/AppTemplates/Carbon/CarbonAddMoney.dart";
 import "package:classapp/AppTemplates/Carbon/CarbonAirtime.dart";
 import "package:classapp/AppTemplates/Carbon/CarbonAppHome.dart";
 import "package:classapp/AppTemplates/Carbon/CarbonAppPageView.dart";
+import "package:classapp/AppTemplates/Carbon/CarbonData.dart";
 import 'package:classapp/AppTemplates/FormLayout.dart';
 import "package:classapp/AppTemplates/PageView.dart";
 import "package:classapp/AppTemplates/PureMath.dart";
@@ -52,7 +53,8 @@ class MyApp extends StatelessWidget {
         "/": (context) => CarbonApp(),
         'loan': (context) => CarbonLoan(),
         'addMoney': (context) => CarbonAddMoney(),
-        'airtime': (context) => CarbonAirtime()
+        'airtime': (context) => CarbonAirtime(),
+        'buydata': (context) => CarbonData()
       }, // Default to light mode
 
       // home: ThePureMathApp(
