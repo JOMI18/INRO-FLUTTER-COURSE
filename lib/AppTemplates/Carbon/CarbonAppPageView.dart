@@ -68,9 +68,9 @@ class _LoanPageViewState extends State<LoanPageView> {
             Container(
               height: 440,
               width: 400,
-              color: const Color.fromARGB(133, 217, 200, 248),
+              color: const Color.fromARGB(133, 200, 222, 248),
               child: Image.network(
-                "https://assets-global.website-files.com/6453bf08503f6d73d5ffe98e/64634dfeee6236743038f41e_savings%20phone%20screen.webp",
+                "https://plus.unsplash.com/premium_photo-1676983352679-38e7f54602f9?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 fit: BoxFit.cover,
                 height: 440,
                 width: 400,
@@ -83,7 +83,11 @@ class _LoanPageViewState extends State<LoanPageView> {
                 child: SmoothPageIndicator(
               controller: _loanController,
               count: 3,
-              effect: WormEffect(dotHeight: 10, dotWidth: 10),
+              effect: const WormEffect(
+                dotHeight: 10,
+                dotWidth: 10,
+                activeDotColor: Color.fromARGB(255, 3, 34, 213),
+              ),
             )),
             const SizedBox(
               height: 16,
@@ -116,12 +120,12 @@ class _LoanPageViewState extends State<LoanPageView> {
                   itemBuilder: (context, index) {
                     return ListTile(
                       leading: const CircleAvatar(
-                          radius: 12,
-                          backgroundColor: Color.fromARGB(161, 104, 58, 183),
+                          radius: 14,
+                          backgroundColor: Color.fromARGB(133, 174, 210, 255),
                           child: Icon(
                             Icons.check,
-                            color: Color.fromARGB(234, 58, 3, 155),
                             size: 18,
+                            color: Color.fromARGB(255, 3, 34, 213),
                           )),
                       title: Text(applyLoan[index]["title"]),
                       // trailing: Icon(applyLoan[index]["icon"]),
@@ -133,7 +137,7 @@ class _LoanPageViewState extends State<LoanPageView> {
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 73, 22, 161),
+                    backgroundColor: const Color.fromARGB(255, 3, 34, 213),
                     foregroundColor: Colors.white,
                     elevation: 5,
                     padding: const EdgeInsets.all(12),
@@ -157,9 +161,9 @@ class _LoanPageViewState extends State<LoanPageView> {
             Container(
               height: 440,
               width: 400,
-              color: const Color.fromARGB(133, 217, 200, 248),
+              color: const Color.fromARGB(133, 200, 222, 248),
               child: Image.network(
-                "https://www.benjamindada.com/content/images/dadabenblog/2020/07/carbon-financial-result-chijioke-dozie-min-1.jpg",
+                "https://images.unsplash.com/photo-1609921205586-7e8a57516512?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aXBob25lJTIwMTUlMjBsb2FufGVufDB8fDB8fHww",
                 fit: BoxFit.cover,
               ),
             ),
@@ -170,7 +174,11 @@ class _LoanPageViewState extends State<LoanPageView> {
                 child: SmoothPageIndicator(
               controller: _loanController,
               count: 3,
-              effect: WormEffect(dotHeight: 10, dotWidth: 10),
+              effect: const WormEffect(
+                dotHeight: 10,
+                dotWidth: 10,
+                activeDotColor: Color.fromARGB(255, 3, 34, 213),
+              ),
             )),
             const SizedBox(
               height: 16,
@@ -203,11 +211,11 @@ class _LoanPageViewState extends State<LoanPageView> {
                   itemBuilder: (context, index) {
                     return ListTile(
                       leading: const CircleAvatar(
-                          radius: 12,
-                          backgroundColor: Color.fromARGB(161, 104, 58, 183),
+                          radius: 14,
+                          backgroundColor: Color.fromARGB(133, 174, 210, 255),
                           child: Icon(
                             Icons.check,
-                            color: Color.fromARGB(234, 58, 3, 155),
+                            color: Color.fromARGB(255, 3, 34, 213),
                             size: 18,
                           )),
                       title: Text(acceptOffer[index]["title"]),
@@ -221,10 +229,8 @@ class _LoanPageViewState extends State<LoanPageView> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(235, 225, 198, 255),
-                          foregroundColor:
-                              const Color.fromARGB(255, 90, 3, 213),
+                          backgroundColor: const Color.fromARGB(133, 200, 222, 248),
+                          foregroundColor: const Color.fromARGB(255, 3, 34, 213),
                           elevation: 5,
                           fixedSize:
                               const Size(100, 50), // Set the width and height
@@ -250,8 +256,7 @@ class _LoanPageViewState extends State<LoanPageView> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 73, 22, 161),
+                          backgroundColor: const Color.fromARGB(255, 3, 34, 213),
                           foregroundColor: Colors.white,
                           elevation: 5,
                           fixedSize:
@@ -279,9 +284,9 @@ class _LoanPageViewState extends State<LoanPageView> {
             Container(
               height: 440,
               width: 400,
-              color: const Color.fromARGB(133, 217, 200, 248),
+              color: const Color.fromARGB(133, 200, 222, 248),
               child: Image.network(
-                "https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/4cc9634a-478b-4005-9617-ccb2cb00a198/2295681047/carbon-savings-loans-bills-screenshot.png",
+                "https://images.unsplash.com/photo-1599202875854-23b7cd490ff4?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 fit: BoxFit.cover,
               ),
             ),
@@ -292,7 +297,11 @@ class _LoanPageViewState extends State<LoanPageView> {
                 child: SmoothPageIndicator(
               controller: _loanController,
               count: 3,
-              effect: WormEffect(dotHeight: 10, dotWidth: 10),
+              effect: const WormEffect(
+                dotHeight: 10,
+                dotWidth: 10,
+                activeDotColor: Color.fromARGB(255, 3, 34, 213),
+              ),
             )),
             const SizedBox(
               height: 16,
@@ -325,11 +334,11 @@ class _LoanPageViewState extends State<LoanPageView> {
                   itemBuilder: (context, index) {
                     return ListTile(
                       leading: const CircleAvatar(
-                          radius: 12,
-                          backgroundColor: Color.fromARGB(161, 104, 58, 183),
+                          radius: 14,
+                          backgroundColor: Color.fromARGB(133, 174, 210, 255),
                           child: Icon(
                             Icons.check,
-                            color: Color.fromARGB(234, 58, 3, 155),
+                            color: Color.fromARGB(255, 3, 34, 213),
                             size: 18,
                           )),
                       title: Text(repayLoan[index]["title"]),
@@ -343,10 +352,8 @@ class _LoanPageViewState extends State<LoanPageView> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(235, 225, 198, 255),
-                          foregroundColor:
-                              const Color.fromARGB(255, 90, 3, 213),
+                          backgroundColor: const Color.fromARGB(133, 200, 222, 248),
+                          foregroundColor: const Color.fromARGB(255, 3, 34, 213),
                           elevation: 5,
                           fixedSize:
                               const Size(100, 50), // Set the width and height
@@ -372,8 +379,7 @@ class _LoanPageViewState extends State<LoanPageView> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 73, 22, 161),
+                          backgroundColor: const Color.fromARGB(255, 3, 34, 213),
                           foregroundColor: Colors.white,
                           elevation: 5,
                           fixedSize:
@@ -400,11 +406,11 @@ class _LoanPageViewState extends State<LoanPageView> {
         height: 35,
         child: FloatingActionButton(
           onPressed: () {},
-          backgroundColor: Color.fromARGB(217, 172, 172, 172),
+          backgroundColor: const Color.fromARGB(217, 172, 172, 172),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50.0),
           ),
-          child: Icon(Icons.close),
+          child: const Icon(Icons.close),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
