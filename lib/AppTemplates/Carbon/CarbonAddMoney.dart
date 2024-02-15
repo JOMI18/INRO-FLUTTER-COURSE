@@ -216,7 +216,8 @@ class CarbonAddMoney extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: 378,
-                        child: Card(
+                        child:
+                         Card(
                           elevation: 4,
                           surfaceTintColor: Colors.white,
                           child: Padding(
