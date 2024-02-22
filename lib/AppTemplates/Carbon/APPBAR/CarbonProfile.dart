@@ -1,4 +1,4 @@
-import 'package:classapp/AppTemplates/Carbon/REUSABLES/BottomBar.dart';
+import 'package:classapp/AppTemplates/Carbon/CUSTOMIZED/AppBars.dart';
 import 'package:flutter/material.dart';
 
 class CarbonProfile extends StatelessWidget {
@@ -12,7 +12,7 @@ class CarbonProfile extends StatelessWidget {
     {
       "mainIcon": Icons.account_circle,
       "mainTitle": "Profile",
-      "route": "",
+      "route": "profileInfo",
     },
     {
       "mainIcon": Icons.edit_document,
@@ -32,7 +32,7 @@ class CarbonProfile extends StatelessWidget {
     {
       "mainIcon": Icons.lock,
       "mainTitle": "Security settings",
-      "route": "",
+      "route": "security",
     },
     {
       "mainIcon": Icons.note_alt,
@@ -51,47 +51,20 @@ class CarbonProfile extends StatelessWidget {
     },
     {
       "mainIcon": Icons.account_balance,
-      "mainTitle": "About App",
+      "mainTitle": "About {App}",
       "route": "",
     },
     {
       "mainIcon": Icons.block_sharp,
       "mainTitle": "Sign out",
-      "route": "",
+      "route": "signOut",
     },
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CarbonBottomBar(),
-      appBar: AppBar(
-        bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(-14),
-            child: Container(
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                          width: 1,
-                          color: Color.fromARGB(146, 167, 167, 167)))),
-            )),
-        leading: TextButton(
-          style: ButtonStyle(
-              overlayColor: MaterialStateProperty.all(Colors.transparent)),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Icon(
-            Icons.arrow_back_ios_new_rounded,
-            size: 25,
-          ),
-        ),
-        centerTitle: true,
-        title: const Text(
-          "Account",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-      ),
+      appBar: CarbonAppBars(title: "Account"),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10),
         child: Column(
@@ -162,7 +135,8 @@ class CarbonProfile extends StatelessWidget {
               height: 12,
             ),
             Expanded(
-              child: ListView.builder(
+              child: 
+              ListView.builder(
                   itemCount: items.length,
                   itemBuilder: ((context, index) {
                     return Column(

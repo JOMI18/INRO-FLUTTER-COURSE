@@ -1,23 +1,41 @@
+import 'package:classapp/AppTemplates/Carbon/FORMS/CarbonAlreadySignedIn.dart';
+import 'package:classapp/AppTemplates/Carbon/FORMS/CarbonSignIn.dart';
+import 'package:classapp/AppTemplates/Carbon/FORMS/CarbonSignUp.dart';
+import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/FROMACCOUNT/CarbonProfileDetails.dart';
+import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/FROMACCOUNT/CarbonSecurity.dart';
+import 'package:classapp/AppTemplates/Carbon/POPUPS/SignOutAlert.dart';
+import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonBillTabs.dart';
 import 'package:flutter/material.dart';
 // import 'dart:math';
-
 // import 'package:google_fonts/google_fonts.dart';
 // import 'package:intl/intl.dart';
 
-// import 'package:classapp/AppTemplates/WIDGETS/Alert.dart';
-// import 'package:classapp/AppTemplates//WIDGETS/FormLayout.dart';
-// import "package:classapp/AppTemplates//WIDGETS/PageView.dart";
-// import "package:classapp/AppTemplates//WIDGETS/PureMath.dart";
-// import "package:classapp/AppTemplates//WIDGETS/Sliders+Switches.dart";
+// PRACTICE
+import 'package:classapp/AppTemplates/WIDGETS/Navigations.dart';
 
-import "package:classapp/AppTemplates/Carbon/CarbonAppHome.dart";
+import 'package:classapp/AppTemplates/WIDGETS/REUSABLES/BOTTOMNAV/BottomNavigation.dart';
+import 'package:classapp/AppTemplates/WIDGETS/REUSABLES/ALERTS/Alert.dart';
+
+import 'package:classapp/AppTemplates/WIDGETS/ANIMATIONS/FadeTransition.dart';
+import 'package:classapp/AppTemplates/WIDGETS/ANIMATIONS/AnimatedWidget.dart';
+import 'package:classapp/AppTemplates/WIDGETS/ANIMATIONS/SlideAnimation.dart';
+
+import 'package:classapp/AppTemplates/WIDGETS/LAYOUTS/FormLayout.dart';
+import 'package:classapp/AppTemplates/WIDGETS/LAYOUTS/PageView.dart';
+import 'package:classapp/AppTemplates/WIDGETS/LAYOUTS/PureMath.dart';
+import 'package:classapp/AppTemplates/WIDGETS/LAYOUTS/Sliders+Switches.dart';
+
+// CARBON
+import 'package:classapp/AppTemplates/Carbon/DefaultScreenView.dart';
+
+import 'package:classapp/AppTemplates/Carbon/BOTTOMBAR/CarbonAppHome.dart';
 
 import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonAirtime.dart';
 import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonAirtimeDataCombo.dart';
 import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonData.dart';
 
-import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/CarbonAppPageView.dart';
-import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/CarbonChallenge.dart';
+import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/FROMSUPPORT/CarbonAppPageView.dart';
+import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/FROMSUPPORT/CarbonChallenge.dart';
 
 import 'package:classapp/AppTemplates/Carbon/APPBAR/CarbonNotification.dart';
 import 'package:classapp/AppTemplates/Carbon/APPBAR/CarbonProfile.dart';
@@ -60,99 +78,70 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData.dark(), // Dark theme
       themeMode: ThemeMode.light, // Default to light mode
-      initialRoute: "/",
+
+      initialRoute: "navigation",
+
       routes: {
-        // CARBON APP
-        "/": (context) => CarbonAppWidget(),
+        //////////////// CARBON APP  //////////////
 
-        // APPBAR
+        //////// ENTRY FORMS
+        "signUp": (context) => const CarbonSignUp(),
+        "logIn": (context) => const CarbonSignIn(),
+        "alreadySignedIn": (context) => const CarbonAlreadySignedIn(),
+
+        //////// DEFAULTS
+        "default": (context) => const DefaultScreen(),
+        "home": (context) => CarbonAppHome(),
+
+        //////// APPBAR
         "profile": (context) => CarbonProfile(),
-        "notify": (context) => CarbonNotification(),
+        // WITHIN PROFILE
+        "profileInfo": (context) => CarbonProfileInfo(),
+        "security": (context) => CarbonSecurity(),
+        "signOut": (context) => SignOutAlert(),
+
         "support": (context) => CarbonSupport(),
-
         // WITHIN SUPPORT
-        'gettingLoan': (context) => LoanPageView(),
-        'challenge': (context) => ChallengePage(),
+        'gettingLoan': (context) => const LoanPageView(),
+        'challenge': (context) => const ChallengePage(),
 
-        'addMoney': (context) => CarbonAddMoney(),
-        'sendMoney': (context) => CarbonSendMoney(),
+        "notify": (context) => const CarbonNotification(),
+
+        //////// MONEY TAB
+        'addMoney': (context) => const CarbonAddMoney(),
+        'sendMoney': (context) => const CarbonSendMoney(),
+
+        //////// QUICK ACCESS
         'dataAirtime': (context) => AirtimeDataCombo(),
+        'payBills': (context) => CarbonBillTabs(),
+        'airtime': (context) => const CarbonAirtime(),
+        'buydata': (context) => const CarbonData(),
 
-        'airtime': (context) => CarbonAirtime(),
-        'buydata': (context) => CarbonData()
+        //////////////  CLASSES -- APP LAYOUTS   //////////////
+        'pureMath': (context) => const PureMathAppWidget(),
+        'signUpForm': (context) => const FormWidget(),
+        'switchSliders': (context) => const SwitchAndSlidersWidget(),
+        'pageView': (context) => PageViewWidget(),
+
+        'alert': (context) => const AlertBox(),
+        'bottomNavigation': (context) => const BottomNavigation(),
+
+        'transitions': (context) => SlideAnimationExample(),
+        'animation': (context) => MyAnimatedWidget(),
+        'fadeTransition': (context) => FirstScreen(),
+
+        'navigation': (context) => const NavigationTabs(),
       },
-
-      // home: ThePureMathApp(
-      //   title: 'Pure math',
-      // ),
-
-      // home: const MyForm(
-      //   title: 'Form',
-      // ),
-
-      // home: const SwitchesNSliders(
-      //   title: 'SwitchesNSliders ',
-      // ),
-
-      // home: const PageView(
-      //   title: 'Hello ',
-      // ),
-
-      // home: const UsingAlert(
-      //   title: "Alerts",
-      // ),
     );
   }
 }
 
-////////////  CLASSES  //////////////
 
-// class ThePureMathApp extends StatelessWidget {
-//   const ThePureMathApp({super.key, title});
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: PureMathAppWidget(),
-//     );
-//   }
-// }
 
-// class MyForm extends StatelessWidget {
-//   const MyForm({super.key, title});
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: FormWidget(),
-//     );
-//   }
-// }
+
 
 // StatelessWidget is a widget that doesn't have any mutable state. Once created, the properties of a StatelessWidget cannot change.
 
-// class SwitchesNSliders extends StatelessWidget {
-//   const SwitchesNSliders({super.key, title});
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: SwitchAndSlidersWidget(),
-//     );
-//   }
-// }
 
-// class PageView extends StatelessWidget {
-//   const PageView({super.key, title});
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(body: PageViewWidget());
-//   }
-// }
 
-// class UsingAlert extends StatelessWidget {
-//   const UsingAlert({super.key, title});
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: AlertBox(),
-//     );
-//   }
-// }
+

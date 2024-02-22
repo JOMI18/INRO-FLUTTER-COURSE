@@ -1,29 +1,13 @@
-import 'package:classapp/AppTemplates/Carbon/REUSABLES/BottomBar.dart';
 import 'package:flutter/material.dart';
 
-class CarbonAppWidget extends StatelessWidget {
-  CarbonAppWidget({super.key, title});
+class CarbonAppHome extends StatelessWidget {
+  const CarbonAppHome({super.key, title});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CarbonBottomBar()
-
-      // Icon(
-      //                 Icons.home,
-      //                 size: 25,
-      //                 color: Color(0xFF0578D6),
-      //               ),
-      //               Text(
-      //                 "Home",
-      //                 style: TextStyle(
-      //                   fontSize: 12,
-      //                   color: Color(0xFF0578D6),
-      //                   fontWeight: FontWeight.w600,
-      //                 ),
-      //               )
-      ,
       appBar: AppBar(
+        automaticallyImplyLeading: false, // remove when cleaning for mr T
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -365,7 +349,7 @@ class Upgrade extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text("Upgrade your Cabon Account",
+                          const Text("Upgrade your {App} Account",
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.w700)),
                           const SizedBox(
@@ -442,7 +426,7 @@ class Access extends StatelessWidget {
                     height: 6,
                   ),
                   Text(
-                    "Carbon Zero",
+                    "{App} Zero",
                     style: TextStyle(fontSize: 12),
                   )
                 ],
@@ -483,7 +467,9 @@ class Access extends StatelessWidget {
               width: 15,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, "payBills");
+              },
               // width: 80,
               style: ElevatedButton.styleFrom(
                   fixedSize: const Size(75, 75),
