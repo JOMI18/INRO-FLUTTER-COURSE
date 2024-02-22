@@ -1,3 +1,4 @@
+import 'package:classapp/AppTemplates/Carbon/CUSTOMIZED/AppBars.dart';
 import 'package:flutter/material.dart';
 
 class CarbonAddMoney extends StatelessWidget {
@@ -34,33 +35,7 @@ class CarbonAddMoney extends StatelessWidget {
           ),
         ),
       ),
-      appBar: AppBar(
-        bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(-18),
-            child: Container(
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                          width: 1,
-                          color: Color.fromARGB(146, 167, 167, 167)))),
-            )),
-        leading: TextButton(
-          style: ButtonStyle(
-              overlayColor: MaterialStateProperty.all(Colors.transparent)),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Icon(
-            Icons.arrow_back_ios_new_rounded,
-            size: 16,
-          ),
-        ),
-        centerTitle: true,
-        title: const Text(
-          "Fund account",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-      ),
+      appBar: CarbonAppBars(title: "Fund account"),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16),

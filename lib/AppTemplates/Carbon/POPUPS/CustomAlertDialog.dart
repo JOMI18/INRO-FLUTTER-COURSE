@@ -14,10 +14,11 @@ class CustomAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      insetPadding: EdgeInsets.all(20),
+      insetPadding: const EdgeInsets.all(20),
       title: Text(
         title,
-        style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: -0.6, fontSize: 20),
+        style: const TextStyle(
+            fontWeight: FontWeight.bold, letterSpacing: -0.6, fontSize: 20),
       ),
       content: content,
       actions: actions,

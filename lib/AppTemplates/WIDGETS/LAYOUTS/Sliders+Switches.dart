@@ -23,7 +23,10 @@ class _SwitchAndSlidersWidgetState extends State<SwitchAndSlidersWidget> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text("Lesson on Sliders and Switches"),
+            Text(
+              "Lesson on Sliders and Switches",
+              style: TextStyle(fontSize: 18),
+            ),
             Icon(
               Icons.lightbulb,
               color: bulbColor,

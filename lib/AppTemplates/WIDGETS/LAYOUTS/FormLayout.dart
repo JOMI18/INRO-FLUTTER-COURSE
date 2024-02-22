@@ -15,15 +15,11 @@ class FormWidget extends StatelessWidget {
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
         title: const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Icon(
-              Icons.menu,
-              size: 30,
-            ),
             Text("Sign Up Forms"),
             Icon(
-              Icons.account_circle_rounded,
+              Icons.account_circle_sharp,
               size: 30,
             ),
           ],

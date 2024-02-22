@@ -1,13 +1,11 @@
-import 'package:classapp/AppTemplates/WIDGETS/CustomAlertDialog.dart';
+import 'package:classapp/AppTemplates/WIDGETS/REUSABLES/ALERTS/CustomAlertDialog.dart';
 import "package:flutter/material.dart";
 
 // class Alert extends StatelessWidget {
-//   Alert({super.key});
-
+//   const Alert({super.key});
 //   closeDialogs(BuildContext context) {
 //     Navigator.of(context).pop();
 //   }
-
 //   showDialogs(BuildContext context) {
 //     AlertDialog alert = AlertDialog(
 //       insetPadding: EdgeInsets.symmetric(vertical: 10),
@@ -29,7 +27,6 @@ import "package:flutter/material.dart";
 //             ),
 //           )),
 //     );
-
 //     showDialog(
 //         context: context,
 //         builder: (BuildContext context) {
@@ -37,7 +34,6 @@ import "package:flutter/material.dart";
 //               child: alert, onWillPop: () => Future.value(false));
 //         });
 //   }
-
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
@@ -65,7 +61,8 @@ class AlertBox extends StatelessWidget {
         title: const Text("Alert Example"),
       ),
       body: Center(
-          child: ElevatedButton.icon(
+          child:
+           ElevatedButton.icon(
               onPressed: () {
                 showDialog(
                     context: context,

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class PureMathAppWidget extends StatelessWidget {
   // String title = '';
 
-  PureMathAppWidget({
+  const PureMathAppWidget({
     super.key,
   });
   @override
@@ -11,6 +11,7 @@ class PureMathAppWidget extends StatelessWidget {
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 27, 27, 27),
         appBar: AppBar(
+            automaticallyImplyLeading: false,
             titleSpacing: 0.0, // removes extra space from the left and right
 
 // // // // // CLASS Intro  // // // // // // //
@@ -22,7 +23,7 @@ class PureMathAppWidget extends StatelessWidget {
             // centerTitle: true,
             // titleSpacing: 10.2,
 
-// // // // // // // // class CHALLENGE  // // // // // // // //
+//////////////// class CHALLENGE  ////////////////
 
 //////////////////////// Explain how this bottom works //////////////////////////
 // In Flutter, the bottom property of the AppBar widget allows you to specify a widget that is positioned below
@@ -39,15 +40,24 @@ class PureMathAppWidget extends StatelessWidget {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Column(
+                Column(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.menu,
                       color: Colors.white,
                     ),
-                    SizedBox(
-                      height: 30,
+                    const SizedBox(
+                      height: 15,
                     ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                      ),
+                    )
                   ],
                 ),
                 Column(
@@ -507,7 +517,6 @@ class PureMathAppWidget extends StatelessWidget {
                                                 size: 9,
                                                 color: Colors.white,
                                               ),
-                                         
                                             ],
                                           )
                                         ]),

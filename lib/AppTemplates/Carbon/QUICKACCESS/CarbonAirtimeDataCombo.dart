@@ -43,15 +43,15 @@ class AirtimeDataCombo extends StatelessWidget {
               child: Column(
                 children: [
                   TabBar(
-                    // indicator: BoxDecoration(color: Colors.blue), 
-                    tabs: [
-                    Tab(
-                      text: "Buy Airtime",
-                    ),
-                    Tab(
-                      text: "Buy Data",
-                    ),
-                  ])
+                      // indicator: BoxDecoration(color: Colors.blue),
+                      tabs: [
+                        Tab(
+                          text: "Buy Airtime",
+                        ),
+                        Tab(
+                          text: "Buy Data",
+                        ),
+                      ])
                 ],
               ),
             ),
