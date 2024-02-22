@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CarbonAirtime extends StatelessWidget {
-  const CarbonAirtime({super.key});
+class CarbonData extends StatelessWidget {
+  const CarbonData({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +16,20 @@ class CarbonAirtime extends StatelessWidget {
                           width: 1,
                           color: Color.fromARGB(229, 167, 167, 167)))),
             )),
-        leading: const Icon(
-          Icons.arrow_back_ios_new_rounded,
-          size: 16,
+        leading: TextButton(
+          style: ButtonStyle(
+              overlayColor: MaterialStateProperty.all(Colors.transparent)),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(
+            Icons.arrow_back_ios_new_rounded,
+            size: 16,
+          ),
         ),
         centerTitle: true,
         title: const Text(
-          "Buy Airtime ",
+          "Buy Data ",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
@@ -36,31 +43,31 @@ class CarbonAirtime extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, "airtime");
+                      },
                       style: ElevatedButton.styleFrom(
                           fixedSize: Size(192, 20),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
                           disabledBackgroundColor:
                               const Color.fromARGB(255, 165, 215, 255),
-                          foregroundColor: Colors.white,
-                          backgroundColor:
-                              const Color.fromARGB(255, 3, 34, 213)),
+                          foregroundColor:
+                              const Color.fromARGB(255, 3, 34, 213),
+                          backgroundColor: Color.fromARGB(200, 220, 239, 255)),
                       child: Text(
                         "Buy airtime",
                       )),
                   ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, "buydata");
-                      },
+                      onPressed: () {},
                       style: ElevatedButton.styleFrom(
                         fixedSize: Size(192, 20),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         disabledBackgroundColor:
                             const Color.fromARGB(255, 165, 215, 255),
-                        foregroundColor: const Color.fromARGB(255, 3, 34, 213),
-                        backgroundColor: Color.fromARGB(200, 220, 239, 255),
+                        backgroundColor: const Color.fromARGB(255, 3, 34, 213),
+                        foregroundColor: Colors.white,
                       ),
                       child: Text(
                         "Buy data",

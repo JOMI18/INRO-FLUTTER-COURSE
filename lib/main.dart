@@ -1,18 +1,30 @@
-// import 'dart:math';
-
-import "package:classapp/AppTemplates/Carbon/CarbonAddMoney.dart";
-import "package:classapp/AppTemplates/Carbon/CarbonAirtime.dart";
-import "package:classapp/AppTemplates/Carbon/CarbonAppHome.dart";
-import "package:classapp/AppTemplates/Carbon/CarbonAppPageView.dart";
-import "package:classapp/AppTemplates/Carbon/CarbonData.dart";
-import 'package:classapp/AppTemplates/FormLayout.dart';
-import "package:classapp/AppTemplates/PageView.dart";
-import "package:classapp/AppTemplates/PureMath.dart";
-import "package:classapp/AppTemplates/Sliders+Switches.dart";
 import 'package:flutter/material.dart';
+// import 'dart:math';
 
 // import 'package:google_fonts/google_fonts.dart';
 // import 'package:intl/intl.dart';
+
+// import 'package:classapp/AppTemplates/WIDGETS/Alert.dart';
+// import 'package:classapp/AppTemplates//WIDGETS/FormLayout.dart';
+// import "package:classapp/AppTemplates//WIDGETS/PageView.dart";
+// import "package:classapp/AppTemplates//WIDGETS/PureMath.dart";
+// import "package:classapp/AppTemplates//WIDGETS/Sliders+Switches.dart";
+
+import "package:classapp/AppTemplates/Carbon/CarbonAppHome.dart";
+
+import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonAirtime.dart';
+import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonAirtimeDataCombo.dart';
+import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonData.dart';
+
+import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/CarbonAppPageView.dart';
+import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/CarbonChallenge.dart';
+
+import 'package:classapp/AppTemplates/Carbon/APPBAR/CarbonNotification.dart';
+import 'package:classapp/AppTemplates/Carbon/APPBAR/CarbonProfile.dart';
+import 'package:classapp/AppTemplates/Carbon/APPBAR/CarbonSupport.dart';
+
+import 'package:classapp/AppTemplates/Carbon/MONEYTRANSACTIONS/CarbonSendMoney.dart';
+import 'package:classapp/AppTemplates/Carbon/MONEYTRANSACTIONS/CarbonAddMoney.dart';
 
 void main() {
   runApp(const MyApp());
@@ -47,15 +59,28 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       darkTheme: ThemeData.dark(), // Dark theme
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.light, // Default to light mode
       initialRoute: "/",
       routes: {
-        "/": (context) => CarbonApp(),
-        'loan': (context) => CarbonLoan(),
+        // CARBON APP
+        "/": (context) => CarbonAppWidget(),
+
+        // APPBAR
+        "profile": (context) => CarbonProfile(),
+        "notify": (context) => CarbonNotification(),
+        "support": (context) => CarbonSupport(),
+
+        // WITHIN SUPPORT
+        'gettingLoan': (context) => LoanPageView(),
+        'challenge': (context) => ChallengePage(),
+
         'addMoney': (context) => CarbonAddMoney(),
+        'sendMoney': (context) => CarbonSendMoney(),
+        'dataAirtime': (context) => AirtimeDataCombo(),
+
         'airtime': (context) => CarbonAirtime(),
         'buydata': (context) => CarbonData()
-      }, // Default to light mode
+      },
 
       // home: ThePureMathApp(
       //   title: 'Pure math',
@@ -69,16 +94,12 @@ class MyApp extends StatelessWidget {
       //   title: 'SwitchesNSliders ',
       // ),
 
-      // home: CarbonApp(
-      //   title: 'Hello ',
-      // ),
-
       // home: const PageView(
       //   title: 'Hello ',
       // ),
 
-      // home: const CarbonLoan(
-      //   title: 'Carbon ',
+      // home: const UsingAlert(
+      //   title: "Alerts",
       // ),
     );
   }
@@ -118,16 +139,6 @@ class MyApp extends StatelessWidget {
 //   }
 // }
 
-class CarbonApp extends StatelessWidget {
-  const CarbonApp({super.key, title});
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: CarbonAppWidget(),
-    );
-  }
-}
-
 // class PageView extends StatelessWidget {
 //   const PageView({super.key, title});
 //   @override
@@ -136,12 +147,12 @@ class CarbonApp extends StatelessWidget {
 //   }
 // }
 
-class CarbonLoan extends StatelessWidget {
-  const CarbonLoan({super.key, title});
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: LoanPageView(),
-    );
-  }
-}
+// class UsingAlert extends StatelessWidget {
+//   const UsingAlert({super.key, title});
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: AlertBox(),
+//     );
+//   }
+// }
