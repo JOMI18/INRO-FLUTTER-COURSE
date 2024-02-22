@@ -44,9 +44,16 @@ class CarbonAddMoney extends StatelessWidget {
                           width: 1,
                           color: Color.fromARGB(146, 167, 167, 167)))),
             )),
-        leading: const Icon(
-          Icons.arrow_back_ios_new_rounded,
-          size: 16,
+        leading: TextButton(
+          style: ButtonStyle(
+              overlayColor: MaterialStateProperty.all(Colors.transparent)),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(
+            Icons.arrow_back_ios_new_rounded,
+            size: 16,
+          ),
         ),
         centerTitle: true,
         title: const Text(
@@ -216,8 +223,7 @@ class CarbonAddMoney extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: 378,
-                        child:
-                         Card(
+                        child: Card(
                           elevation: 4,
                           surfaceTintColor: Colors.white,
                           child: Padding(

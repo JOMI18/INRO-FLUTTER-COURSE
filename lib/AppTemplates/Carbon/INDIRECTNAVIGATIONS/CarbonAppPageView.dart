@@ -229,8 +229,10 @@ class _LoanPageViewState extends State<LoanPageView> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color.fromARGB(133, 200, 222, 248),
-                          foregroundColor: const Color.fromARGB(255, 3, 34, 213),
+                          backgroundColor:
+                              const Color.fromARGB(133, 200, 222, 248),
+                          foregroundColor:
+                              const Color.fromARGB(255, 3, 34, 213),
                           elevation: 5,
                           fixedSize:
                               const Size(100, 50), // Set the width and height
@@ -256,7 +258,8 @@ class _LoanPageViewState extends State<LoanPageView> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color.fromARGB(255, 3, 34, 213),
+                          backgroundColor:
+                              const Color.fromARGB(255, 3, 34, 213),
                           foregroundColor: Colors.white,
                           elevation: 5,
                           fixedSize:
@@ -352,8 +355,10 @@ class _LoanPageViewState extends State<LoanPageView> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color.fromARGB(133, 200, 222, 248),
-                          foregroundColor: const Color.fromARGB(255, 3, 34, 213),
+                          backgroundColor:
+                              const Color.fromARGB(133, 200, 222, 248),
+                          foregroundColor:
+                              const Color.fromARGB(255, 3, 34, 213),
                           elevation: 5,
                           fixedSize:
                               const Size(100, 50), // Set the width and height
@@ -379,7 +384,8 @@ class _LoanPageViewState extends State<LoanPageView> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color.fromARGB(255, 3, 34, 213),
+                          backgroundColor:
+                              const Color.fromARGB(255, 3, 34, 213),
                           foregroundColor: Colors.white,
                           elevation: 5,
                           fixedSize:
@@ -402,15 +408,20 @@ class _LoanPageViewState extends State<LoanPageView> {
         ],
       ),
       floatingActionButton: Container(
-        width: 35,
-        height: 35,
+        width: 25,
+        height: 25,
         child: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           backgroundColor: const Color.fromARGB(217, 172, 172, 172),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50.0),
           ),
-          child: const Icon(Icons.close),
+          child: const Icon(
+            Icons.close,
+            size: 20,
+          ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,

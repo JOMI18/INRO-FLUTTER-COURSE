@@ -1,3 +1,4 @@
+import 'package:classapp/AppTemplates/Carbon/REUSABLES/BottomBar.dart';
 import 'package:flutter/material.dart';
 
 class CarbonAppWidget extends StatelessWidget {
@@ -6,234 +7,102 @@ class CarbonAppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-            border: Border(
-          top: BorderSide(
-              width: 1,
-              color: const Color.fromARGB(255, 95, 95, 95).withOpacity(0.8)),
-        )),
-        child: BottomAppBar(
-            color: Colors.white.withOpacity(1),
-            padding: const EdgeInsets.all(8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(0),
-                      fixedSize: const Size(60, 60),
-                      // elevation: 0,
-                      shape: const RoundedRectangleBorder()),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.home,
-                        size: 25,
-                        color: Color(0xFF0578D6),
-                      ),
-                      Text(
-                        "Home",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Color(0xFF0578D6),
-                          fontWeight: FontWeight.w600,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(0),
-                      fixedSize: const Size(60, 60),
-                      // elevation: 0,
-                      shape: const RoundedRectangleBorder()),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.cases_outlined,
-                        size: 25,
-                        color: Colors.grey.shade700,
-                      ),
-                      Text(
-                        "Savings",
-                        style: TextStyle(
-                          color: Colors.grey.shade700,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(0),
-                      fixedSize: const Size(60, 60),
-                      // elevation: 0,
-                      shape: const RoundedRectangleBorder()),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.savings_outlined,
-                        size: 25,
-                        color: Colors.grey.shade700,
-                      ),
-                      Text(
-                        "Payment",
-                        style: TextStyle(
-                          color: Colors.grey.shade700,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, 'loan');
-                  },
-                  style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(0),
-                      fixedSize: const Size(60, 60),
-                      // elevation: 0,
-                      shape: const RoundedRectangleBorder()),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.monetization_on,
-                        size: 25,
-                        color: Colors.grey.shade700,
-                      ),
-                      Text(
-                        "Loans",
-                        style: TextStyle(
-                          color: Colors.grey.shade700,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(0),
-                      fixedSize: const Size(60, 60),
-                      // elevation: 0,
-                      shape: const RoundedRectangleBorder()),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.account_circle,
-                        size: 25,
-                        color: Colors.grey.shade700,
-                      ),
-                      Text(
-                        "Account",
-                        style: TextStyle(
-                          color: Colors.grey.shade700,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            )),
-      ),
+      bottomNavigationBar: CarbonBottomBar()
+
+      // Icon(
+      //                 Icons.home,
+      //                 size: 25,
+      //                 color: Color(0xFF0578D6),
+      //               ),
+      //               Text(
+      //                 "Home",
+      //                 style: TextStyle(
+      //                   fontSize: 12,
+      //                   color: Color(0xFF0578D6),
+      //                   fontWeight: FontWeight.w600,
+      //                 ),
+      //               )
+      ,
       appBar: AppBar(
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              children: [
-                CircleAvatar(
-                    backgroundColor: const Color(0xFFE7E7E7),
-                    radius: 22,
-                    child: Icon(
-                      Icons.account_circle,
-                      size: 41,
-                      color: const Color(0xFF252525).withOpacity(0.5),
-                    )),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, "profile");
+              },
+              child: Row(
+                children: [
+                  CircleAvatar(
+                      backgroundColor: const Color(0xFFE7E7E7),
+                      radius: 22,
+                      child: Icon(
+                        Icons.account_circle,
+                        size: 41,
+                        color: const Color(0xFF252525).withOpacity(0.5),
+                      )),
 
-                // Container(
-                //   height: 40,
-                //   width: 40,
-                //   decoration: BoxDecoration(
-                //       color: Colors.white,
-                //       // border: Border.all(width: 1),
-                //       borderRadius: BorderRadius.circular(50),
-                //       boxShadow: [
-                //         BoxShadow(
-                //           color: Colors.grey.withOpacity(0.5),
-                //           spreadRadius: 2,
-                //           blurRadius: 7,
-                //           // offset: Offset(0, 3)
-                //         )
-                //       ]),
-                //   child: const Icon(
-                //     Icons.account_circle,
-                //     size: 41,
-                //     color: Color.fromARGB(245, 73, 73, 73),
-                //   ),
-                // ),
+                  // Container(
+                  //   height: 40,
+                  //   width: 40,
+                  //   decoration: BoxDecoration(
+                  //       color: Colors.white,
+                  //       // border: Border.all(width: 1),
+                  //       borderRadius: BorderRadius.circular(50),
+                  //       boxShadow: [
+                  //         BoxShadow(
+                  //           color: Colors.grey.withOpacity(0.5),
+                  //           spreadRadius: 2,
+                  //           blurRadius: 7,
+                  //           // offset: Offset(0, 3)
+                  //         )
+                  //       ]),
+                  //   child: const Icon(
+                  //     Icons.account_circle,
+                  //     size: 41,
+                  //     color: Color.fromARGB(245, 73, 73, 73),
+                  //   ),
+                  // ),
 
-                const SizedBox(
-                  width: 4,
-                ),
+                  const SizedBox(
+                    width: 4,
+                  ),
 
-                const Text(
-                  "Hi Oluwajomiloju",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                ),
-              ],
+                  const Text(
+                    "Hi Jonathan Smith Reyes",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                ],
+              ),
             ),
             Row(
               children: [
-                CircleAvatar(
-                  radius: 13,
-                  backgroundColor: const Color(0xFF5C5C5C).withOpacity(0.5),
-                  child: const Icon(
-                    Icons.question_mark_outlined,
-                    size: 18,
-                    color: Color.fromARGB(245, 73, 73, 73),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, "support");
+                  },
+                  child: CircleAvatar(
+                    radius: 13,
+                    backgroundColor: const Color(0xFF5C5C5C).withOpacity(0.5),
+                    child: const Icon(
+                      Icons.question_mark_outlined,
+                      size: 18,
+                      color: Color.fromARGB(245, 73, 73, 73),
+                    ),
                   ),
                 ),
-
-                // Container(
-                //   height: 28,
-                //   width: 28,
-                //   decoration: BoxDecoration(
-                //     color: const Color.fromARGB(255, 133, 132, 132),
-                //     // border: Border.all(width: 1),
-                //     borderRadius: BorderRadius.circular(50),
-                //   ),
-                //   child: const Icon(
-                //     Icons.question_mark_outlined,
-                //     size: 22,
-                //     color: Color.fromARGB(245, 73, 73, 73),
-                //   ),
-                // ),
-
-                const SizedBox(width: 10),
-
-                Icon(
-                  Icons.notifications,
-                  size: 26,
-                  color: const Color(0xFF5C5C5C).withOpacity(0.9),
+                const SizedBox(
+                  width: 10,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, "notify");
+                  },
+                  child: Icon(
+                    Icons.notifications,
+                    size: 28,
+                    color: const Color(0xFF5C5C5C).withOpacity(0.9),
+                  ),
                 )
               ],
             )
@@ -275,84 +144,13 @@ class CarbonAppWidget extends StatelessWidget {
               // ),
               Column(
                 children: [
-                  Account(),
+                  const Account(),
                   const SizedBox(
                     height: 12,
                   ),
-                  Row(
-                    children: [
-                      Container(
-                        width: 380,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color:
-                                  Colors.grey.withOpacity(0.3), // Shadow color
-                              spreadRadius: 0.5, // Spread radius
-                              blurRadius: 2, // Blur radius
-                              offset: const Offset(0, 1), // Offset
-                            ),
-                          ],
-                        ),
-                        child: const Card(
-                          elevation: 2,
-                          surfaceTintColor: Colors.white,
-                          child: Padding(
-                            padding: EdgeInsets.all(
-                              10,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Icon(
-                                      Icons.upgrade,
-                                      size: 28,
-                                      color: Color.fromARGB(183, 0, 70, 156),
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text("Upgrade your Cabon Account",
-                                            style: TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w700)),
-                                        SizedBox(
-                                          height: 5,
-                                        ),
-                                        Text(
-                                            "Verify your identity to improve limits on your account",
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                            )),
-                                        Text(
-                                          "Tap here to upgrade now",
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            letterSpacing: -0.6,
-                                            fontWeight: FontWeight.w800,
-                                            color:
-                                                Color.fromARGB(183, 0, 73, 142),
-                                          ),
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  const Upgrade(),
                   const SizedBox(
-                    height: 18,
+                    height: 25,
                   ),
                   const Access(),
                   const SizedBox(
@@ -416,42 +214,48 @@ class Account extends StatelessWidget {
                   const SizedBox(
                     height: 8,
                   ),
-                  const Row(
+                  Row(
                     children: [
-                      Text(
-                        "\$ 0.00",
+                      const Text(
+                        "₦ 0.00",
                         style: TextStyle(
                             fontSize: 25,
                             color: Colors.white,
                             fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      Icon(
-                        Icons.remove_red_eye_outlined,
-                        size: 28,
-                        color: Colors.white,
+                      GestureDetector(
+                        onTap: () {},
+                        child: const Icon(
+                          Icons.remove_red_eye_outlined,
+                          size: 26,
+                          color: Colors.white,
+                        ),
                       )
                     ],
                   ),
                   const SizedBox(
                     height: 4,
                   ),
-                  const Row(
+                  Row(
                     children: [
-                      Text(
+                      const Text(
                         "Account number: 4004383940385",
                         style: TextStyle(
                             color: Colors.white, fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      Icon(
-                        Icons.copy,
-                        size: 20,
-                        color: Colors.white,
+                      GestureDetector(
+                        onTap: () {},
+                        child: const Icon(
+                          Icons.copy,
+                          size: 20,
+                          color: Colors.white,
+                        ),
                       )
                     ],
                   )
@@ -501,7 +305,7 @@ class Account extends StatelessWidget {
                                 .withOpacity(1),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, 'loan');
+                        Navigator.pushNamed(context, 'sendMoney');
                       },
                       child: const Text(
                         "Send Money",
@@ -520,6 +324,85 @@ class Account extends StatelessWidget {
   }
 }
 
+class Upgrade extends StatelessWidget {
+  const Upgrade({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          width: 380,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.3), // Shadow color
+                spreadRadius: 0.5, // Spread radius
+                blurRadius: 2, // Blur radius
+                offset: const Offset(0, 1), // Offset
+              ),
+            ],
+          ),
+          child: Card(
+            elevation: 2,
+            surfaceTintColor: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(
+                10,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Icon(
+                        Icons.upgrade,
+                        size: 28,
+                        color: Color.fromARGB(183, 0, 70, 156),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text("Upgrade your Cabon Account",
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w700)),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          const Text(
+                              "Verify your identity to improve limits on your account",
+                              style: TextStyle(
+                                fontSize: 12,
+                              )),
+                          GestureDetector(
+                            onTap: () {},
+                            child: const Text(
+                              "Tap here to upgrade now",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 15,
+                                letterSpacing: -0.6,
+                                fontWeight: FontWeight.w800,
+                                color: Color.fromARGB(183, 0, 73, 142),
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
 class Access extends StatelessWidget {
   const Access({super.key});
 
@@ -533,7 +416,7 @@ class Access extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
         ),
         const SizedBox(
-          height: 25,
+          height: 15,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -542,8 +425,9 @@ class Access extends StatelessWidget {
               onPressed: () {},
               // width: 80,
               style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(80, 85),
-                  shape: const RoundedRectangleBorder(),
+                  fixedSize: const Size(75, 75),
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
                   padding: const EdgeInsets.all(0),
                   foregroundColor: Colors.grey.shade800),
 
@@ -569,11 +453,13 @@ class Access extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, 'airtime');
+                Navigator.pushNamed(context, 'dataAirtime');
               },
               style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(80, 85),
-                  shape: const RoundedRectangleBorder(),
+                  fixedSize: const Size(75, 75),
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
                   padding: const EdgeInsets.all(0),
                   foregroundColor: Colors.grey.shade800),
               child: const Column(
@@ -600,8 +486,9 @@ class Access extends StatelessWidget {
               onPressed: () {},
               // width: 80,
               style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(80, 85),
-                  shape: const RoundedRectangleBorder(),
+                  fixedSize: const Size(75, 75),
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
                   padding: const EdgeInsets.all(0),
                   foregroundColor: Colors.grey.shade800),
 
@@ -629,8 +516,9 @@ class Access extends StatelessWidget {
               onPressed: () {},
               // width: 80,
               style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(80, 85),
-                  shape: const RoundedRectangleBorder(),
+                  fixedSize: const Size(75, 75),
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
                   padding: const EdgeInsets.all(0),
                   foregroundColor: Colors.grey.shade800),
 
@@ -690,19 +578,22 @@ class Transactions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      const Row(
+      Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             "Transactions",
             style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
           ),
-          Text(
-            "View All",
-            style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
-                color: const Color(0xFF0578D6)),
+          GestureDetector(
+            onTap: () {},
+            child: Text(
+              "View All",
+              style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                  color: const Color(0xFF0578D6)),
+            ),
           )
         ],
       ),
@@ -723,7 +614,7 @@ class Transactions extends StatelessWidget {
                     ),
                   ),
                   trailing: Text(
-                    "\$${transactions[index]['price'].toString()}",
+                    "₦${transactions[index]['price'].toString()}.00",
                     style: const TextStyle(
                         fontWeight: FontWeight.w800, fontSize: 18),
                   ),
