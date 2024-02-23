@@ -52,6 +52,9 @@ class CarbonAppBars extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: trailing != null ? [trailing!] : null,
+
+      // trailing != null: This condition checks if the trailing widget is not null.
+// ? [trailing!] : null: This is a conditional expression. If the condition before the ? is true (i.e., if trailing is not null), it evaluates the expression after the ?, which is [trailing!]. This creates a list with the trailing widget inside it. If the condition is false (i.e., if trailing is null), it evaluates the expression after the : and assigns null to the actions parameter.
     );
   }
 

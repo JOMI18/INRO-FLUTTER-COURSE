@@ -1,4 +1,5 @@
 import 'package:classapp/AppTemplates/Carbon/CUSTOMIZED/AppBars.dart';
+import 'package:classapp/AppTemplates/Carbon/CUSTOMIZED/PopUpButtons.dart';
 import 'package:classapp/AppTemplates/Carbon/POPUPS/CustomAlertDialog.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +30,6 @@ class CarbonProfileInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
-          // height: 60,
           surfaceTintColor: Colors.white,
           elevation: 2,
           child: ElevatedButton.icon(
@@ -37,78 +37,166 @@ class CarbonProfileInfo extends StatelessWidget {
                 showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return CustomAlertDialog(
-                          title: "Close Account",
-                          content: SizedBox(
-                              width: 250,
-                              child: const Text(
-                                "You are about to delete your profile. Please note that when you delete your profile your previous transactions records are not deleted",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              )),
+                      return Dialog.fullscreen(
+                        backgroundColor: const Color(0xFFE6F7FF),
+                        child: CustomAlertDialog(
+                          icon: (Icons.warning_rounded),
+                          iconColor: Colors.amberAccent,
+                          title: "Are you sure you want to close your account?",
+                          content: const Column(children: [
+                            Text(
+                              "Please give us 1 working day to review this request so that we can:",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 55, 55, 55)),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              "1)  Ensure adherence to CBN regulations around transaction history",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 55, 55, 55)),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              "2)  Ensure there is no balance remaining on your account or loan repayments to be settled",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 55, 55, 55)),
+                            ),
+                          ]),
                           actions: [
                             Column(
                               children: [
-                                TextButton(
-                                  style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all(
-                                              const Color.fromARGB(
-                                                  255, 255, 17, 0))),
+                                ElevatedButton(
                                   onPressed: () {
                                     Navigator.of(context).pop();
-                                  },
-                                  child: const Text(
-                                    "Close Account",
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                                TextButton(
-                                  style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all(
-                                              const Color.fromARGB(
-                                                  255, 0, 255, 8))),
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
+
                                     showDialog(
                                         context: context,
                                         builder: (BuildContext context) {
                                           return CustomAlertDialog(
-                                            title: "Okay, Processing request",
-                                            actions: [
-                                              TextButton(
-                                                  onPressed: () {
-                                                    Navigator.of(context).pop();
-                                                  },
-                                                  child: const Text("Close"))
-                                            ],
-                                            content: const Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                CircularProgressIndicator(),
-                                                SizedBox(
-                                                  width: 20,
+                                              icon:
+                                                  (Icons.delete_sweep_rounded),
+                                              iconColor: const Color.fromARGB(
+                                                  255, 255, 17, 0),
+                                              title: "Close Account",
+                                              content: Text(
+                                                "You are about to delete your profile. Please note that when you delete your profile your pervious transactions are not deleted",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                              actions: [
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    TextButton(
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                      style: popUpButtonStyle(),
+                                                      child: Text(
+                                                          "Close Account",
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w900)),
+                                                    ),
+                                                    TextButton(
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                      style: popUpButtonStyle(),
+                                                      child: Text("Not now",
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w900)),
+                                                    ),
+                                                  ],
                                                 ),
-                                                Text(
-                                                  "Please Wait...",
-                                                  style:
-                                                      TextStyle(fontSize: 18),
-                                                )
-                                              ],
-                                            ),
-                                          );
+                                              ]);
                                         });
                                   },
-                                  child: const Text(
-                                    "Yes",
-                                    style: TextStyle(color: Colors.black),
+                                  style: ElevatedButton.styleFrom(
+                                    // overlayColor: Colors.transparent, // only works with buttonstyle
+                                    backgroundColor: const Color.fromARGB(
+                                        255, 231, 249, 255),
+                                    surfaceTintColor: Colors.white,
+
+                                    elevation: 0,
+
+                                    // splashFactory: NoSplash
+                                    //     .splashFactory, // Remove the splash effect
+                                    fixedSize: const Size(370, 50),
+
+                                    padding: const EdgeInsets.all(10),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
                                   ),
-                                )
+                                  child: const Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "Continue",
+                                        style: TextStyle(
+                                            color: Color.fromARGB(255, 0, 0, 0),
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 8,
+                                ),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor:
+                                          const Color.fromARGB(255, 3, 34, 213),
+                                      foregroundColor: Colors.white,
+                                      elevation: 5,
+                                      fixedSize: const Size(
+                                          370, 50), // Set the width and height
+
+                                      padding: const EdgeInsets.all(10),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      )),
+                                  child: const Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "Keep account Open",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ],
                             ),
-                          ]);
+                          ],
+                        ),
+                      );
                     });
               },
               style: ElevatedButton.styleFrom(
@@ -212,7 +300,7 @@ class CarbonProfileInfo extends StatelessWidget {
             decoration: BoxDecoration(
                 color: const Color.fromARGB(228, 211, 231, 255),
                 borderRadius: BorderRadius.circular(8)),
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
