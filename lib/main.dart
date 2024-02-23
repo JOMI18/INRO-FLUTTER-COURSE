@@ -1,10 +1,4 @@
-import 'package:classapp/AppTemplates/Carbon/FORMS/CarbonAlreadySignedIn.dart';
-import 'package:classapp/AppTemplates/Carbon/FORMS/CarbonSignIn.dart';
-import 'package:classapp/AppTemplates/Carbon/FORMS/CarbonSignUp.dart';
-import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/FROMACCOUNT/CarbonProfileDetails.dart';
-import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/FROMACCOUNT/CarbonSecurity.dart';
-import 'package:classapp/AppTemplates/Carbon/POPUPS/SignOutAlert.dart';
-import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonBillTabs.dart';
+
 import 'package:flutter/material.dart';
 // import 'dart:math';
 // import 'package:google_fonts/google_fonts.dart';
@@ -33,9 +27,12 @@ import 'package:classapp/AppTemplates/Carbon/BOTTOMBAR/CarbonAppHome.dart';
 import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonAirtime.dart';
 import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonAirtimeDataCombo.dart';
 import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonData.dart';
+import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonBillTabs.dart';
 
 import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/FROMSUPPORT/CarbonAppPageView.dart';
 import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/FROMSUPPORT/CarbonChallenge.dart';
+import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/FROMACCOUNT/CarbonProfileDetails.dart';
+import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/FROMACCOUNT/CarbonSecurity.dart';
 
 import 'package:classapp/AppTemplates/Carbon/APPBAR/CarbonNotification.dart';
 import 'package:classapp/AppTemplates/Carbon/APPBAR/CarbonProfile.dart';
@@ -43,6 +40,12 @@ import 'package:classapp/AppTemplates/Carbon/APPBAR/CarbonSupport.dart';
 
 import 'package:classapp/AppTemplates/Carbon/MONEYTRANSACTIONS/CarbonSendMoney.dart';
 import 'package:classapp/AppTemplates/Carbon/MONEYTRANSACTIONS/CarbonAddMoney.dart';
+
+import 'package:classapp/AppTemplates/Carbon/FORMS/CarbonAlreadySignedIn.dart';
+import 'package:classapp/AppTemplates/Carbon/FORMS/CarbonSignIn.dart';
+import 'package:classapp/AppTemplates/Carbon/FORMS/CarbonSignUp.dart';
+
+import 'package:classapp/AppTemplates/Carbon/POPUPS/SignOutAlert.dart';
 
 void main() {
   runApp(const MyApp());
@@ -145,3 +148,5 @@ class MyApp extends StatelessWidget {
 
 
 
+// CREATING NEW PROJECTS
+// flutter create {NAME}
