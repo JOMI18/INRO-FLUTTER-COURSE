@@ -345,7 +345,7 @@ class AccountCard extends StatelessWidget {
                       text:
                           'To add money to your Carbon account, make a bank transfer of up to '),
                   TextSpan(
-                    text: '\$0',
+                    text: '₦0',
                     style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,

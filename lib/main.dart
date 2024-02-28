@@ -1,4 +1,4 @@
-
+import 'package:classapp/AppTemplates/Carbon/TRANSITION/SlideAnimation.dart';
 import 'package:flutter/material.dart';
 // import 'dart:math';
 // import 'package:google_fonts/google_fonts.dart';
@@ -76,13 +76,17 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Color.fromARGB(255, 3, 85, 152),
+            surfaceTint: Colors.white, ),
         useMaterial3: true,
       ),
       darkTheme: ThemeData.dark(), // Dark theme
       themeMode: ThemeMode.light, // Default to light mode
 
-      initialRoute: "navigation",
+      // initialRoute: "navigation",
+      initialRoute: "default",
+      // initialRoute: "alreadySignedIn",
 
       routes: {
         //////////////// CARBON APP  //////////////
@@ -135,16 +139,29 @@ class MyApp extends StatelessWidget {
 
         'navigation': (context) => const NavigationTabs(),
       },
+
+      // Use onGenerateRoute to specify custom PageRouteBuilder
+      // onGenerateRoute: (settings) {
+      //   // Check if the route is valid and return SlideAnimation
+      //   switch (settings.name) {
+      //     case '/second':
+      //       return SlideAnimation(page: SecondPage());
+      //     case '/third':
+      //       return SlideAnimation(page: ThirdPage());
+      //     default:
+      //       return null; // Return null if route is not found
+      //   }
+      // },
+      // // Handle unknown routes here
+      // onUnknownRoute: (settings) {
+      //   return MaterialPageRoute(builder: (context) => UnknownPage());
+      // },
     );
   }
 }
 
 
-
-
-
 // StatelessWidget is a widget that doesn't have any mutable state. Once created, the properties of a StatelessWidget cannot change.
-
 
 
 
