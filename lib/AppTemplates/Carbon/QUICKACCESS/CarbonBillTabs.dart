@@ -100,7 +100,7 @@ class CarbonBillTabs extends StatelessWidget {
                   decoration: InputDecoration(
                       contentPadding: const EdgeInsets.symmetric(
                         vertical: 10, // Adjust vertical padding as needed
-                        horizontal: 30, // Adjust horizontal padding as needed
+                        horizontal: 40, // Adjust horizontal padding as needed
                       ),
                       filled: true,
                       alignLabelWithHint: true,

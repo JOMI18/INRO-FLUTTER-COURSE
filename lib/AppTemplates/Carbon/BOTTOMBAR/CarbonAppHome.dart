@@ -1,3 +1,9 @@
+import 'package:classapp/AppTemplates/Carbon/APPBAR/CarbonProfile.dart';
+import 'package:classapp/AppTemplates/Carbon/MONEYTRANSACTIONS/CarbonAddMoney.dart';
+import 'package:classapp/AppTemplates/Carbon/MONEYTRANSACTIONS/CarbonSendMoney.dart';
+import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonAirtimeDataCombo.dart';
+import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonBillTabs.dart';
+import 'package:classapp/AppTemplates/Carbon/TRANSITION/SlideAnimation.dart';
 import 'package:flutter/material.dart';
 
 class CarbonAppHome extends StatelessWidget {
@@ -13,7 +19,19 @@ class CarbonAppHome extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, "profile");
+                // Navigator.pushNamed(context, "profile");
+                // So, both methods have their own use cases:
+
+                // Navigator.pushNamed: Convenient for navigating to predefined named routes with default transitions. Useful when you have a simple navigation flow and want to keep the route configuration centralized.
+                // Navigator.push: Provides more flexibility for custom navigation scenarios, such as applying custom transitions, passing arguments, or navigating dynamically based on user interactions. Ideal for more complex navigation needs or when you need to navigate outside the predefined route configuration.
+                // In your case, since you want to apply a custom slide animation transition when navigating to the "profile" route, using Navigator.push with a custom route (SlideAnimationRoute) is appropriate. This allows you to achieve the desired animation effect while still leveraging named routes for other simpler navigations in your application.
+                Navigator.of(context).push(
+                  SlideAnimation(
+                    page: CarbonProfile(),
+                    // duration: Duration(milliseconds: 500),
+                    // curve: Curves.easeInOut,
+                  ),
+                );
               },
               child: Row(
                 children: [
@@ -25,33 +43,9 @@ class CarbonAppHome extends StatelessWidget {
                         size: 41,
                         color: const Color(0xFF252525).withOpacity(0.5),
                       )),
-
-                  // Container(
-                  //   height: 40,
-                  //   width: 40,
-                  //   decoration: BoxDecoration(
-                  //       color: Colors.white,
-                  //       // border: Border.all(width: 1),
-                  //       borderRadius: BorderRadius.circular(50),
-                  //       boxShadow: [
-                  //         BoxShadow(
-                  //           color: Colors.grey.withOpacity(0.5),
-                  //           spreadRadius: 2,
-                  //           blurRadius: 7,
-                  //           // offset: Offset(0, 3)
-                  //         )
-                  //       ]),
-                  //   child: const Icon(
-                  //     Icons.account_circle,
-                  //     size: 41,
-                  //     color: Color.fromARGB(245, 73, 73, 73),
-                  //   ),
-                  // ),
-
                   const SizedBox(
                     width: 4,
                   ),
-
                   const Text(
                     "Hi Jonathan Smith Reyes",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -98,34 +92,6 @@ class CarbonAppHome extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: Column(
             children: [
-              // // // // // // // // //   STACK TEST RUN // // // // // // // // //
-              // Stack(
-              //   children: [
-              //     Positioned(
-              //       child: Container(
-              //         width: 200,
-              //         height: 200,
-              //         color: Colors.blueAccent,
-              //       ),
-              //     ),
-              //     Positioned(
-              //         top: 50,
-              //         left: 50,
-              //         child: Container(
-              //           width: 100,
-              //           height: 100,
-              //           color: Colors.redAccent,
-              //         )),
-              //     Positioned(
-              //         top: -10,
-              //         left: 50,
-              //         child: Container(
-              //           width: 40,
-              //           height: 40,
-              //           color: Colors.greenAccent,
-              //         )),
-              //   ],
-              // ),
               Column(
                 children: [
                   const Account(),
@@ -168,7 +134,7 @@ class Account extends StatelessWidget {
               decoration: BoxDecoration(
                 // boxShadow: Box,
                 borderRadius: BorderRadius.circular(10.0),
-                color: const Color(0xFF0578D6),
+                color: Color.fromARGB(255, 3, 85, 152),
               ),
               child: Column(
                 children: [
@@ -254,7 +220,7 @@ class Account extends StatelessWidget {
                 height: 48,
                 width: 260,
                 decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 202, 231, 255),
+                    color: Color.fromARGB(255, 121, 195, 255),
                     borderRadius: BorderRadius.circular(6)),
                 //   borderRadius: BorderRadius.only(
                 //   topLeft: Radius.circular(6),
@@ -266,12 +232,15 @@ class Account extends StatelessWidget {
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         shape: const RoundedRectangleBorder(),
-                        backgroundColor:
-                            const Color.fromARGB(255, 165, 215, 255)
-                                .withOpacity(1),
+                        backgroundColor: Color.fromARGB(255, 112, 191, 255),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, "addMoney");
+                        // Navigator.pushNamed(context, "addMoney");
+                        Navigator.of(context).push(
+                          SlideAnimation(
+                            page: CarbonAddMoney(),
+                          ),
+                        );
                       },
                       child: const Text(
                         "Add money",
@@ -284,12 +253,15 @@ class Account extends StatelessWidget {
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         shape: const RoundedRectangleBorder(),
-                        backgroundColor:
-                            const Color.fromARGB(255, 165, 215, 255)
-                                .withOpacity(1),
+                        backgroundColor: Color.fromARGB(255, 112, 191, 255),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, 'sendMoney');
+                        // Navigator.pushNamed(context, 'sendMoney');
+                        Navigator.of(context).push(
+                          SlideAnimation(
+                            page: CarbonSendMoney(),
+                          ),
+                        );
                       },
                       child: const Text(
                         "Send Money",
@@ -437,7 +409,14 @@ class Access extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, 'dataAirtime');
+                // Navigator.pushNamed(context, 'dataAirtime');
+                Navigator.of(context).push(
+                  SlideAnimation(
+                    page: AirtimeDataCombo(),
+                    duration: Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                  ),
+                );
               },
               style: ElevatedButton.styleFrom(
                   fixedSize: const Size(75, 75),
@@ -468,7 +447,14 @@ class Access extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, "payBills");
+                // Navigator.pushNamed(context, "payBills");
+                Navigator.of(context).push(
+                  SlideAnimation(
+                    page: CarbonBillTabs(),
+                    duration: Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                  ),
+                );
               },
               // width: 80,
               style: ElevatedButton.styleFrom(
