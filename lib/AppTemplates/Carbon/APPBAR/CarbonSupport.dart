@@ -1,5 +1,7 @@
 import 'package:classapp/AppTemplates/Carbon/CUSTOMIZED/AppBars.dart';
+import 'package:classapp/AppTemplates/Carbon/TRANSITION/ItemSlideIns.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class CarbonSupport extends StatelessWidget {
   CarbonSupport({super.key});
@@ -41,21 +43,16 @@ class CarbonSupport extends StatelessWidget {
             height: 20,
           ),
           Expanded(
-            child: ListView.builder(
-                itemCount: items.length,
-                itemBuilder: ((context, index) {
-                  return Column(
-                    children: [
-                      ListTile(
-                        leading: CircleAvatar(
-                          radius: 28,
-                          child: Icon(
-                            items[index]["mainIcon"],
-                            size: 28,
-                            color: Color.fromARGB(255, 11, 104, 181),
-                          ),
-                        ),
-                        trailing: GestureDetector(
+            child: ComponentSlideIns(
+              beginOffset: Offset(-2.0, 0.0),
+              endOffset: Offset(0.0, 0.0),
+              duration: Duration(milliseconds: 1000),
+              child: ListView.builder(
+                  itemCount: items.length,
+                  itemBuilder: ((context, index) {
+                    return Column(
+                      children: [
+                        GestureDetector(
                           onTap: () {
                             if (index == 0) {
                               Navigator.pushNamed(context, '');
@@ -65,23 +62,33 @@ class CarbonSupport extends StatelessWidget {
                               Navigator.pushNamed(context, 'gettingLoan');
                             }
                           },
-                          child: Icon(
-                            items[index]["sideIcon"],
-                            size: 16,
-                            color: const Color.fromARGB(255, 32, 32, 32),
+                          child: ListTile(
+                            leading: CircleAvatar(
+                              radius: 28,
+                              child: Icon(
+                                items[index]["mainIcon"],
+                                size: 28,
+                                color: const Color.fromARGB(255, 3, 85, 152),
+                              ),
+                            ),
+                            trailing: Icon(
+                              items[index]["sideIcon"],
+                              size: 16,
+                              color: const Color.fromARGB(255, 32, 32, 32),
+                            ),
+                            subtitle: Text(items[index]["subTitle"]),
+                            title: Text(items[index]["mainTitle"],
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 16)),
                           ),
                         ),
-                        subtitle: Text(items[index]["subTitle"]),
-                        title: Text(items[index]["mainTitle"],
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 16)),
-                      ),
-                      Divider(
-                        height: 12,
-                      )
-                    ],
-                  );
-                })),
+                        Divider(
+                          height: 12,
+                        )
+                      ],
+                    );
+                  })),
+            ),
           )
         ],
       ),

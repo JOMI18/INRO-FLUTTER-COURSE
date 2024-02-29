@@ -18,7 +18,7 @@ class _DefaultScreenState extends State<DefaultScreen> {
 
   static List<Widget> widgetOptions = <Widget>[
     const CarbonAppHome(),
-    const CarbonSavings(),
+     CarbonSavings(),
     CarbonPayments(),
     const CarbonLoans(),
     CarbonProfile(),

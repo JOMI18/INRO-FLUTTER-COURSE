@@ -1,4 +1,5 @@
 import 'package:classapp/AppTemplates/Carbon/CUSTOMIZED/AppBars.dart';
+import 'package:classapp/AppTemplates/Carbon/TRANSITION/ItemSlideIns.dart';
 import 'package:flutter/material.dart';
 
 class CarbonNotification extends StatelessWidget {
@@ -8,17 +9,28 @@ class CarbonNotification extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CarbonAppBars(title: "Notification"),
-      body: const Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.notification_add_sharp, size: 70, color: Colors.amber),
+            ComponentSlideIns(
+                beginOffset: Offset(0.0, -5.0),
+                endOffset: Offset(0.0, 0.0),
+                duration: Duration(milliseconds: 1000),
+                child: Icon(Icons.notification_add_sharp,
+                    size: 70, color: Colors.amber)),
             SizedBox(
               height: 20,
             ),
-            Text("OOPS! There is no notification available, check back later!",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20)),
+            ComponentSlideIns(
+              beginOffset: Offset(-2.0, 0.0),
+              endOffset: Offset(0.0, 0.0),
+              duration: Duration(milliseconds: 1200),
+              child: Text(
+                  "OOPS! There is no notification available, check back later!",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20)),
+            ),
           ],
         ),
       ),

@@ -7,7 +7,7 @@ ButtonStyle popUpButtonStyle() {
     elevation: MaterialStateProperty.all(0),
     shape: MaterialStateProperty.all(const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(5)),
-        side: BorderSide(width: 1, color: Colors.black54))),
+        side: BorderSide(width: 2, color: Color.fromARGB(255, 0, 0, 0)))),
     backgroundColor: MaterialStateProperty.all(Colors.transparent),
     overlayColor: MaterialStateProperty.all(Colors.transparent),
     foregroundColor: MaterialStateProperty.all(Colors.black),

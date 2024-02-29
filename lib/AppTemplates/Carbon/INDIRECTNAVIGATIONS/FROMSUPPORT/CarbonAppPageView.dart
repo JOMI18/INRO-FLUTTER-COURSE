@@ -86,7 +86,7 @@ class _LoanPageViewState extends State<LoanPageView> {
               effect: const WormEffect(
                 dotHeight: 10,
                 dotWidth: 10,
-                activeDotColor: Color.fromARGB(255, 3, 34, 213),
+                activeDotColor: Color.fromARGB(255, 3, 85, 152),
               ),
             )),
             const SizedBox(
@@ -125,7 +125,7 @@ class _LoanPageViewState extends State<LoanPageView> {
                           child: Icon(
                             Icons.check,
                             size: 18,
-                            color: Color.fromARGB(255, 3, 34, 213),
+                            color: Color.fromARGB(255, 3, 85, 152),
                           )),
                       title: Text(applyLoan[index]["title"]),
                       // trailing: Icon(applyLoan[index]["icon"]),
@@ -137,7 +137,7 @@ class _LoanPageViewState extends State<LoanPageView> {
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 3, 34, 213),
+                    backgroundColor: Color.fromARGB(255, 3, 85, 152),
                     foregroundColor: Colors.white,
                     elevation: 5,
                     padding: const EdgeInsets.all(12),
@@ -177,7 +177,7 @@ class _LoanPageViewState extends State<LoanPageView> {
               effect: const WormEffect(
                 dotHeight: 10,
                 dotWidth: 10,
-                activeDotColor: Color.fromARGB(255, 3, 34, 213),
+                activeDotColor: Color.fromARGB(255, 3, 85, 152),
               ),
             )),
             const SizedBox(
@@ -215,7 +215,7 @@ class _LoanPageViewState extends State<LoanPageView> {
                           backgroundColor: Color.fromARGB(133, 174, 210, 255),
                           child: Icon(
                             Icons.check,
-                            color: Color.fromARGB(255, 3, 34, 213),
+                            color: Color.fromARGB(255, 3, 85, 152),
                             size: 18,
                           )),
                       title: Text(acceptOffer[index]["title"]),
@@ -231,8 +231,7 @@ class _LoanPageViewState extends State<LoanPageView> {
                       style: ElevatedButton.styleFrom(
                           backgroundColor:
                               const Color.fromARGB(133, 200, 222, 248),
-                          foregroundColor:
-                              const Color.fromARGB(255, 3, 34, 213),
+                          foregroundColor: Color.fromARGB(255, 3, 85, 152),
                           elevation: 5,
                           fixedSize:
                               const Size(100, 50), // Set the width and height
@@ -258,8 +257,7 @@ class _LoanPageViewState extends State<LoanPageView> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 3, 34, 213),
+                          backgroundColor: Color.fromARGB(255, 3, 85, 152),
                           foregroundColor: Colors.white,
                           elevation: 5,
                           fixedSize:
@@ -303,7 +301,7 @@ class _LoanPageViewState extends State<LoanPageView> {
               effect: const WormEffect(
                 dotHeight: 10,
                 dotWidth: 10,
-                activeDotColor: Color.fromARGB(255, 3, 34, 213),
+                activeDotColor: Color.fromARGB(255, 3, 85, 152),
               ),
             )),
             const SizedBox(
@@ -341,7 +339,7 @@ class _LoanPageViewState extends State<LoanPageView> {
                           backgroundColor: Color.fromARGB(133, 174, 210, 255),
                           child: Icon(
                             Icons.check,
-                            color: Color.fromARGB(255, 3, 34, 213),
+                            color: Color.fromARGB(255, 3, 85, 152),
                             size: 18,
                           )),
                       title: Text(repayLoan[index]["title"]),
@@ -357,8 +355,7 @@ class _LoanPageViewState extends State<LoanPageView> {
                       style: ElevatedButton.styleFrom(
                           backgroundColor:
                               const Color.fromARGB(133, 200, 222, 248),
-                          foregroundColor:
-                              const Color.fromARGB(255, 3, 34, 213),
+                          foregroundColor: Color.fromARGB(255, 3, 85, 152),
                           elevation: 5,
                           fixedSize:
                               const Size(100, 50), // Set the width and height
@@ -384,8 +381,7 @@ class _LoanPageViewState extends State<LoanPageView> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 3, 34, 213),
+                          backgroundColor: Color.fromARGB(255, 3, 85, 152),
                           foregroundColor: Colors.white,
                           elevation: 5,
                           fixedSize:

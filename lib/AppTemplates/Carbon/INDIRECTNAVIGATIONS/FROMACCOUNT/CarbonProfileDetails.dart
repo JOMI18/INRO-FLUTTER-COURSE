@@ -1,7 +1,9 @@
 import 'package:classapp/AppTemplates/Carbon/CUSTOMIZED/AppBars.dart';
 import 'package:classapp/AppTemplates/Carbon/CUSTOMIZED/PopUpButtons.dart';
 import 'package:classapp/AppTemplates/Carbon/POPUPS/CustomAlertDialog.dart';
+import 'package:classapp/AppTemplates/Carbon/TRANSITION/ItemSlideIns.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 // Icons.arrow_forward_ios
 class CarbonProfileInfo extends StatelessWidget {
@@ -37,45 +39,58 @@ class CarbonProfileInfo extends StatelessWidget {
                 showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return Dialog.fullscreen(
-                        backgroundColor: const Color(0xFFE6F7FF),
-                        child: CustomAlertDialog(
-                          icon: (Icons.warning_rounded),
-                          iconColor: Colors.amberAccent,
-                          title: "Are you sure you want to close your account?",
-                          content: const Column(children: [
-                            Text(
+                      return CustomAlertDialog(
+                        icon: (Icons.warning_rounded),
+                        iconColor: Colors.amberAccent,
+                        title: "Are you sure you want to close your account?",
+                        content: Column(children: [
+                          ComponentSlideIns(
+                            beginOffset: Offset(2.0, 0.0),
+                            duration: Duration(milliseconds: 600),
+                            child: Text(
                               "Please give us 1 working day to review this request so that we can:",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromARGB(255, 55, 55, 55)),
                             ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text(
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          ComponentSlideIns(
+                            beginOffset: Offset(2.0, 0.0),
+                            duration: Duration(milliseconds: 700),
+                            child: Text(
                               "1)  Ensure adherence to CBN regulations around transaction history",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromARGB(255, 55, 55, 55)),
                             ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text(
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          ComponentSlideIns(
+                            beginOffset: Offset(2.0, 0.0),
+                            duration: Duration(milliseconds: 800),
+                            child: Text(
                               "2)  Ensure there is no balance remaining on your account or loan repayments to be settled",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromARGB(255, 55, 55, 55)),
                             ),
-                          ]),
-                          actions: [
-                            Column(
-                              children: [
-                                ElevatedButton(
+                          ),
+                        ]),
+                        actions: [
+                          Column(
+                            children: [
+                              ComponentSlideIns(
+                                beginOffset: Offset(0.0, -6.0),
+                                duration: Duration(milliseconds: 700),
+                                child: ElevatedButton(
                                   onPressed: () {
                                     Navigator.of(context).pop();
 
@@ -88,12 +103,17 @@ class CarbonProfileInfo extends StatelessWidget {
                                               iconColor: const Color.fromARGB(
                                                   255, 255, 17, 0),
                                               title: "Close Account",
-                                              content: Text(
-                                                "You are about to delete your profile. Please note that when you delete your profile your pervious transactions are not deleted",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.w700),
+                                              content: ComponentSlideIns(
+                                                beginOffset: Offset(-2.0, 0.0),
+                                                duration: Duration(
+                                                    milliseconds: 1200),
+                                                child: const Text(
+                                                  "You are about to delete your profile. Please note that when you delete your profile your pervious transactions are not deleted",
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w700),
+                                                ),
                                               ),
                                               actions: [
                                                 Row(
@@ -107,7 +127,7 @@ class CarbonProfileInfo extends StatelessWidget {
                                                             .pop();
                                                       },
                                                       style: popUpButtonStyle(),
-                                                      child: Text(
+                                                      child: const Text(
                                                           "Close Account",
                                                           style: TextStyle(
                                                               fontWeight:
@@ -120,7 +140,8 @@ class CarbonProfileInfo extends StatelessWidget {
                                                             .pop();
                                                       },
                                                       style: popUpButtonStyle(),
-                                                      child: Text("Not now",
+                                                      child: const Text(
+                                                          "Not now",
                                                           style: TextStyle(
                                                               fontWeight:
                                                                   FontWeight
@@ -131,22 +152,32 @@ class CarbonProfileInfo extends StatelessWidget {
                                               ]);
                                         });
                                   },
-                                  style: ElevatedButton.styleFrom(
-                                    // overlayColor: Colors.transparent, // only works with buttonstyle
-                                    backgroundColor: const Color.fromARGB(
-                                        255, 231, 249, 255),
-                                    surfaceTintColor: Colors.white,
+                                  style: ButtonStyle(
+                                    overlayColor:
+                                        const MaterialStatePropertyAll(Colors
+                                            .transparent), // only works with buttonstyle
+                                    backgroundColor: MaterialStatePropertyAll(
+                                      const Color.fromARGB(255, 3, 85, 152)
+                                          .withOpacity(0.1),
+                                    ),
+                                    surfaceTintColor:
+                                        const MaterialStatePropertyAll(
+                                            Colors.white),
 
-                                    elevation: 0,
+                                    elevation:
+                                        const MaterialStatePropertyAll(0),
 
                                     // splashFactory: NoSplash
                                     //     .splashFactory, // Remove the splash effect
-                                    fixedSize: const Size(370, 50),
+                                    fixedSize: const MaterialStatePropertyAll(
+                                        Size(370, 50)),
 
-                                    padding: const EdgeInsets.all(10),
-                                    shape: RoundedRectangleBorder(
+                                    padding: const MaterialStatePropertyAll(
+                                        EdgeInsets.all(10)),
+                                    shape: MaterialStatePropertyAll(
+                                        RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8),
-                                    ),
+                                    )),
                                   ),
                                   child: const Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -161,16 +192,20 @@ class CarbonProfileInfo extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                const SizedBox(
-                                  height: 8,
-                                ),
-                                ElevatedButton(
+                              ),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              ComponentSlideIns(
+                                beginOffset: Offset(0.0, -5.0),
+                                duration: Duration(milliseconds: 800),
+                                child: ElevatedButton(
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor:
-                                          const Color.fromARGB(255, 3, 34, 213),
+                                          const Color.fromARGB(255, 3, 85, 152),
                                       foregroundColor: Colors.white,
                                       elevation: 5,
                                       fixedSize: const Size(
@@ -192,10 +227,10 @@ class CarbonProfileInfo extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                            ],
+                          ),
+                        ],
                       );
                     });
               },
@@ -224,9 +259,10 @@ class CarbonProfileInfo extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {},
-                  child: const CircleAvatar(
+                  child: CircleAvatar(
                     radius: 70,
-                    backgroundColor: Color.fromARGB(255, 133, 187, 252),
+                    backgroundColor:
+                        const Color.fromARGB(255, 3, 85, 152).withOpacity(0.8),
                   ),
                 ),
                 Padding(
@@ -259,40 +295,43 @@ class CarbonProfileInfo extends StatelessWidget {
           ),
           SizedBox(
             height: 440,
-            child: ListView.builder(
-                itemCount: items.length,
-                itemBuilder: ((context, index) {
-                  return Column(
-                    children: [
-                      ListTile(
-                        leading: CircleAvatar(
-                          radius: 20,
-                          child: Icon(
-                            items[index]["mainIcon"],
-                            size: 22,
-                            color: const Color.fromARGB(255, 11, 104, 181),
-                          ),
-                        ),
-                        trailing: GestureDetector(
+            child: ComponentSlideIns(
+              beginOffset: Offset(2.0, 0.0),
+              child: ListView.builder(
+                  itemCount: items.length,
+                  itemBuilder: ((context, index) {
+                    return Column(
+                      children: [
+                        GestureDetector(
                           onTap: () {
                             Navigator.pushNamed(context, items[index]["route"]);
                           },
-                          child: const Icon(
-                            Icons.arrow_forward_ios,
-                            size: 16,
-                            color: Color.fromARGB(255, 133, 133, 133),
+                          child: ListTile(
+                            leading: CircleAvatar(
+                              radius: 20,
+                              child: Icon(
+                                items[index]["mainIcon"],
+                                size: 22,
+                                color: const Color.fromARGB(255, 3, 85, 152),
+                              ),
+                            ),
+                            trailing: const Icon(
+                              Icons.arrow_forward_ios,
+                              size: 16,
+                              color: Color.fromARGB(255, 133, 133, 133),
+                            ),
+                            title: Text(items[index]["mainTitle"],
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w500, fontSize: 16)),
                           ),
                         ),
-                        title: Text(items[index]["mainTitle"],
-                            style: const TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 16)),
-                      ),
-                      const Divider(
-                        height: 20,
-                      )
-                    ],
-                  );
-                })),
+                        const Divider(
+                          height: 20,
+                        )
+                      ],
+                    );
+                  })),
+            ),
           ),
           Container(
             height: 80,
@@ -306,7 +345,7 @@ class CarbonProfileInfo extends StatelessWidget {
               children: [
                 Icon(
                   Icons.admin_panel_settings_rounded,
-                  color: Color.fromARGB(255, 0, 115, 255),
+                  color: Color.fromARGB(255, 3, 85, 152),
                   size: 34,
                 ),
                 SizedBox(
@@ -315,7 +354,7 @@ class CarbonProfileInfo extends StatelessWidget {
                     "We don't share your personal details with anyone. This information is required soley for verification.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Color.fromARGB(255, 0, 115, 255),
+                      color: Color.fromARGB(255, 3, 85, 152),
                     ),
                   ),
                 )
