@@ -1,3 +1,4 @@
+import 'package:classapp/AppTemplates/Carbon/TRANSITION/ItemSlideIns.dart';
 import 'package:flutter/material.dart';
 
 class ChallengePage extends StatelessWidget {
@@ -67,22 +68,27 @@ class ChallengePage extends StatelessWidget {
                               ),
                               SizedBox(
                                 height: 60,
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                      hintText: "Complaint Category",
-                                      suffixIcon: Icon(
-                                        Icons.arrow_drop_down_sharp,
-                                        size: 32,
-                                        color: Colors.grey.shade600,
-                                      ),
-                                      hintStyle: TextStyle(
+                                child: ComponentSlideIns(
+                                  beginOffset: Offset(4.0, 0.0),
+                                  endOffset: Offset(0.0, 0.0),
+                                  duration: Duration(milliseconds: 1000),
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                        hintText: "Complaint Category",
+                                        suffixIcon: Icon(
+                                          Icons.arrow_drop_down_sharp,
+                                          size: 32,
                                           color: Colors.grey.shade600,
-                                          fontWeight: FontWeight.w400),
-                                      border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      filled: true,
-                                      fillColor: Colors.grey.shade100),
+                                        ),
+                                        hintStyle: TextStyle(
+                                            color: Colors.grey.shade600,
+                                            fontWeight: FontWeight.w400),
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        filled: true,
+                                        fillColor: Colors.grey.shade100),
+                                  ),
                                 ),
                               ),
                               const SizedBox(
@@ -102,22 +108,30 @@ class ChallengePage extends StatelessWidget {
                               ),
                               SizedBox(
                                 height: 60,
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                      hintText: "Subject",
-                                      hintStyle: TextStyle(
-                                          color: Colors.grey.shade600,
-                                          fontWeight: FontWeight.w400),
-                                      border: OutlineInputBorder(
-                                          borderSide: const BorderSide(
-                                              width: 20,
-                                              color: Color.fromARGB(255, 255, 0,
-                                                  0)), // Set faint border color
+                                child: ComponentSlideIns(
+                                  beginOffset: Offset(4.0, 0.0),
+                                  endOffset: Offset(0.0, 0.0),
+                                  duration: Duration(milliseconds: 1200),
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                        hintText: "Subject",
+                                        hintStyle: TextStyle(
+                                            color: Colors.grey.shade600,
+                                            fontWeight: FontWeight.w400),
+                                        border: OutlineInputBorder(
+                                            borderSide: const BorderSide(
+                                                width: 20,
+                                                color: Color.fromARGB(
+                                                    255,
+                                                    255,
+                                                    0,
+                                                    0)), // Set faint border color
 
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      filled: true,
-                                      fillColor: Colors.grey.shade100),
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        filled: true,
+                                        fillColor: Colors.grey.shade100),
+                                  ),
                                 ),
                               ),
                               const SizedBox(
@@ -137,27 +151,32 @@ class ChallengePage extends StatelessWidget {
                               ),
                               SizedBox(
                                 height: 120,
-                                child: TextField(
-                                  maxLines:
-                                      null, // Set maxLines to null for multi-line input
-                                  expands:
-                                      true, // Allow TextField to expand to fill its parent
-                                  textAlignVertical: TextAlignVertical
-                                      .top, // Align text to top
-                                  decoration: InputDecoration(
-                                      // border: InputBorder.none,
-                                      hintText: "Tell us what happened",
-                                      contentPadding: const EdgeInsets.all(
-                                          10), // Remove padding around hint text
+                                child: ComponentSlideIns(
+                                  beginOffset: Offset(4.0, 0.0),
+                                  endOffset: Offset(0.0, 0.0),
+                                  duration: Duration(milliseconds: 1400),
+                                  child: TextField(
+                                    maxLines:
+                                        null, // Set maxLines to null for multi-line input
+                                    expands:
+                                        true, // Allow TextField to expand to fill its parent
+                                    textAlignVertical: TextAlignVertical
+                                        .top, // Align text to top
+                                    decoration: InputDecoration(
+                                        // border: InputBorder.none,
+                                        hintText: "Tell us what happened",
+                                        contentPadding: const EdgeInsets.all(
+                                            10), // Remove padding around hint text
 
-                                      hintStyle: TextStyle(
-                                          color: Colors.grey.shade600,
-                                          fontWeight: FontWeight.w400),
-                                      border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      filled: true,
-                                      fillColor: Colors.grey.shade100),
+                                        hintStyle: TextStyle(
+                                            color: Colors.grey.shade600,
+                                            fontWeight: FontWeight.w400),
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        filled: true,
+                                        fillColor: Colors.grey.shade100),
+                                  ),
                                 ),
                               ),
                               const SizedBox(
@@ -167,34 +186,40 @@ class ChallengePage extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () {},
-                            child: Container(
-                              height: 100,
-                              width: 380,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: Colors.blue, // Border color
-                                  width: 2, // Border width
-                                  // style: BorderStyle.none // Dotted border style
+                            child: ComponentSlideIns(
+                              beginOffset: Offset(-4.0, 0.0),
+                              endOffset: Offset(0.0, 0.0),
+                              duration: Duration(milliseconds: 1000),
+                              child: Container(
+                                height: 100,
+                                width: 380,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Color.fromARGB(
+                                        255, 3, 85, 152), // Border color
+                                    width: 2, // Border width
+                                    // style: BorderStyle.none // Dotted border style
+                                  ),
+                                  color: Color.fromARGB(241, 193, 221, 255),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
-                                color: Colors.blue.shade200,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.cloud_upload,
-                                    size: 40,
-                                    color: Colors.blue,
-                                  ),
-                                  SizedBox(height: 10),
-                                  Text(
-                                    'Tap to upload transaction image',
-                                    style: TextStyle(
-                                      fontSize: 18,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.cloud_upload,
+                                      size: 40,
+                                      color: Color.fromARGB(255, 3, 85, 152),
                                     ),
-                                  ),
-                                ],
+                                    SizedBox(height: 10),
+                                    Text(
+                                      'Tap to upload transaction image',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -212,7 +237,7 @@ class ChallengePage extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(255, 3, 34, 213),
+                        backgroundColor: Color.fromARGB(255, 3, 85, 152),
                         foregroundColor: Colors.white,
                         elevation: 5,
                         fixedSize:

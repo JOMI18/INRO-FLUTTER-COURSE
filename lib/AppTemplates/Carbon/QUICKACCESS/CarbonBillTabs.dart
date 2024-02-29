@@ -1,4 +1,5 @@
 import 'package:classapp/AppTemplates/Carbon/CUSTOMIZED/AppBars.dart';
+import 'package:classapp/AppTemplates/Carbon/TRANSITION/ItemSlideIns.dart';
 import 'package:flutter/material.dart';
 
 class CarbonBillTabs extends StatelessWidget {
@@ -132,35 +133,37 @@ class CarbonBillTabs extends StatelessWidget {
               SizedBox(
                 height: 200,
                 width: 400,
-                child: Card(
-                  elevation: 4,
-                  surfaceTintColor: Colors.white,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                          backgroundColor:
-                              const Color.fromARGB(255, 172, 202, 255)
-                                  .withOpacity(0.5),
-                          radius: 50,
-                          child: const Icon(
-                            Icons.credit_card,
-                            color: Color.fromARGB(183, 0, 70, 156),
-                            size: 80,
+                child: ComponentSlideIns(
+                  beginOffset: Offset(-4.0, 0),
+                  duration: Duration(milliseconds: 1200),
+                  child: Card(
+                    elevation: 4,
+                    surfaceTintColor: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Color.fromARGB(228, 211, 231, 255),
+                            radius: 50,
+                            child: const Icon(
+                              Icons.credit_card,
+                              color: Color.fromARGB(255, 3, 85, 152),
+                              size: 70,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 10),
-                        const Text("No recent payment",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w700)),
-                        const SizedBox(height: 10),
-                        Text("You have not made any payment recently ",
-                            style: TextStyle(
-                                fontSize: 15, color: Colors.grey.shade800)),
-                      ],
+                          const SizedBox(height: 10),
+                          const Text("No recent payment",
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w700)),
+                          const SizedBox(height: 10),
+                          Text("You have not made any payment recently ",
+                              style: TextStyle(
+                                  fontSize: 15, color: Colors.grey.shade800)),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -178,67 +181,76 @@ class CarbonBillTabs extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text("Billers",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 18)),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 14.0, vertical: 5),
+                          child: const Text("Billers",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600, fontSize: 18)),
+                        ),
                         Expanded(
-                          child: GridView.builder(
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3,
-                              mainAxisSpacing: 0,
-                              crossAxisSpacing: 0,
-                            ),
-                            itemCount: items.length,
-                            itemBuilder: ((context, index) {
-                              return Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pushNamed(
-                                          context, items[index]["route"]);
-                                    },
-                                    child: Container(
-                                      padding: const EdgeInsets.all(10),
-                                      width: 100,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(6),
-                                          border: Border.all(
-                                            width: 1,
-                                            color: Colors.grey.shade500,
-                                          )),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          CircleAvatar(
-                                            backgroundColor: items[index]
-                                                ["avatarColor"],
-                                            foregroundColor: Colors.white,
-                                            radius: 18,
-                                            child: Icon(
-                                              items[index]["mainIcon"],
-                                              size: 24,
+                          child: ComponentSlideIns(
+                            beginOffset: Offset(0.0, 4.0),
+                            endOffset: Offset(0.0, 0.0),
+                            duration: Duration(milliseconds: 1400),
+                            child: GridView.builder(
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3,
+                                mainAxisSpacing: 0,
+                                crossAxisSpacing: 0,
+                              ),
+                              itemCount: items.length,
+                              itemBuilder: ((context, index) {
+                                return Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.pushNamed(
+                                            context, items[index]["route"]);
+                                      },
+                                      child: Container(
+                                        padding: const EdgeInsets.all(10),
+                                        width: 100,
+                                        height: 100,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(6),
+                                            border: Border.all(
+                                              width: 1,
+                                              color: Colors.grey.shade500,
+                                            )),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            CircleAvatar(
+                                              backgroundColor: items[index]
+                                                  ["avatarColor"],
+                                              foregroundColor: Colors.white,
+                                              radius: 18,
+                                              child: Icon(
+                                                items[index]["mainIcon"],
+                                                size: 24,
+                                              ),
                                             ),
-                                          ),
-                                          const SizedBox(
-                                            height: 5,
-                                          ),
-                                          Text(items[index]["mainTitle"],
-                                              textAlign: TextAlign.center,
-                                              style: const TextStyle(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontSize: 12)),
-                                        ],
+                                            const SizedBox(
+                                              height: 5,
+                                            ),
+                                            Text(items[index]["mainTitle"],
+                                                textAlign: TextAlign.center,
+                                                style: const TextStyle(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 12)),
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              );
-                            }),
+                                  ],
+                                );
+                              }),
+                            ),
                           ),
                         ),
                       ],

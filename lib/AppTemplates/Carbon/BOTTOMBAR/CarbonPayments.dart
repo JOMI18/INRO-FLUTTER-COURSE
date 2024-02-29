@@ -1,4 +1,5 @@
 import 'package:classapp/AppTemplates/Carbon/CUSTOMIZED/AppBars.dart';
+import 'package:classapp/AppTemplates/Carbon/TRANSITION/ItemSlideIns.dart';
 import 'package:flutter/material.dart';
 
 class CarbonPayments extends StatelessWidget {
@@ -9,14 +10,14 @@ class CarbonPayments extends StatelessWidget {
       "mainIcon": Icons.monetization_on,
       "mainTitle": "Add money",
       "subTitle": "Add money to your {App} account",
-      "iconColor": Color.fromARGB(255, 43, 0, 255),
+      "iconColor": const Color.fromARGB(255, 43, 0, 255),
       "route": "addMoney",
     },
     {
       "mainIcon": Icons.ios_share_sharp,
       "mainTitle": "Send money ",
       "subTitle": "Purchase airtime & data",
-      "iconColor": Color.fromARGB(255, 255, 0, 111),
+      "iconColor": const Color.fromARGB(255, 255, 0, 111),
       "route": "sendMoney",
     },
     {
@@ -51,7 +52,7 @@ class CarbonPayments extends StatelessWidget {
       "mainIcon": Icons.call_to_action_rounded,
       "mainTitle": "Saved payments",
       "subTitle": "Repeat a bill,airtime or date payment",
-      "iconColor": Color.fromARGB(255, 0, 108, 129),
+      "iconColor": const Color.fromARGB(255, 0, 108, 129),
       "route": "",
     },
     {
@@ -66,18 +67,17 @@ class CarbonPayments extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CarbonAppBars(
+      appBar: const CarbonAppBars(
         title: "Payments",
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: 
-        Expanded(
+        child: Expanded(
           child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               mainAxisSpacing: 0,
-              crossAxisSpacing: 0,
+              crossAxisSpacing: 40,
             ),
             itemCount: items.length,
             itemBuilder: ((context, index) {
@@ -87,43 +87,47 @@ class CarbonPayments extends StatelessWidget {
                     onTap: () {
                       Navigator.pushNamed(context, items[index]["route"]);
                     },
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      width: 180,
-                      height: 160,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            width: 1,
-                            color: Colors.grey.shade500,
-                          )),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CircleAvatar(
-                            radius: 20,
-                            child: Icon(
-                              items[index]["mainIcon"],
-                              size: 26,
-                              color: items[index]["iconColor"],
+                    child: ComponentSlideIns(
+                      beginOffset: const Offset(0, -4.0),
+                      duration: const Duration(milliseconds: 1000),
+                      child: Container(
+                        padding: const EdgeInsets.all(10),
+                        width: 180,
+                        height: 140,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              width: 1,
+                              color: Colors.grey.shade500,
+                            )),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CircleAvatar(
+                              radius: 20,
+                              child: Icon(
+                                items[index]["mainIcon"],
+                                size: 26,
+                                color: items[index]["iconColor"],
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(items[index]["mainTitle"],
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 16)),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(items[index]["subTitle"],
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: 12,
-                                  color: Color.fromARGB(255, 80, 80, 80))),
-                        ],
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(items[index]["mainTitle"],
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w600, fontSize: 16)),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(items[index]["subTitle"],
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 12,
+                                    color: Color.fromARGB(255, 80, 80, 80))),
+                          ],
+                        ),
                       ),
                     ),
                   ),

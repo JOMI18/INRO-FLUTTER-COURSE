@@ -22,9 +22,13 @@ class CustomAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Color.fromARGB(255, 231, 249, 255),
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      ),
+      backgroundColor: Color.fromARGB(255, 181, 214, 242),
       surfaceTintColor: Colors.white,
-      // insetPadding: const EdgeInsets.all(20),
+      insetPadding: const EdgeInsets.all(5),
       title: Column(
         children: [
           Icon(

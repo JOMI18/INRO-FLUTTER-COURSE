@@ -17,21 +17,17 @@ class CarbonAlreadySignedIn extends StatelessWidget {
               children: [
                 const Row(
                   children: [
-                    Icon(
-                      Icons.home_work_rounded,
-                      size: 40,
-                      color: Colors.blue,
-                    ),
+                    Icon(Icons.home_work_rounded,
+                        size: 40, color: Color.fromARGB(255, 3, 85, 152)),
                     SizedBox(
                       width: 5,
                     ),
                     Text(
                       "{App Name}",
                       style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue,
-                      ),
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 3, 85, 152)),
                     )
                   ],
                 ),
@@ -90,11 +86,9 @@ class CarbonAlreadySignedIn extends StatelessWidget {
                       child: CircleAvatar(
                           backgroundColor: Colors.transparent,
                           radius: 32,
-                          child: Icon(
-                            Icons.account_circle,
-                            size: 60,
-                            color: Color(0xFF252525),
-                          )),
+                          child: Icon(Icons.account_circle,
+                              size: 60,
+                              color: Color.fromARGB(255, 3, 85, 152))),
                     ),
                   ],
                 ),
@@ -131,10 +125,9 @@ class CarbonAlreadySignedIn extends StatelessWidget {
                     const Text(
                       "Forgot PIN?",
                       style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue,
-                      ),
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 3, 85, 152)),
                     ),
                     const SizedBox(
                       height: 30,
@@ -164,10 +157,9 @@ class CarbonAlreadySignedIn extends StatelessWidget {
                           child: const Text(
                             'Sign Out',
                             style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue,
-                            ),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 3, 85, 152)),
                           ),
                         ),
                       ],

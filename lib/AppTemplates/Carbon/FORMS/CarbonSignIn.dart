@@ -24,20 +24,20 @@ class CarbonSignIn extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   // Navigator.pushNamed(context, "signUp");
-                      Navigator.of(context).push(
-                  SlideAnimation(
-                    page: CarbonSignUp(),
-                    duration: Duration(milliseconds: 500),
-                    curve: Curves.easeInOut,
-                  ),
-                );
+                  Navigator.of(context).push(
+                    SlideAnimation(
+                      page: CarbonSignUp(),
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.easeInOut,
+                    ),
+                  );
                 },
                 child: Text(
                   'Sign Up',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Colors.blue,
+                    color: Color.fromARGB(255, 3, 85, 152),
                   ),
                 ),
               ),
@@ -55,7 +55,7 @@ class CarbonSignIn extends StatelessWidget {
                     Icon(
                       Icons.home_work_rounded,
                       size: 40,
-                      color: Colors.blue,
+                      color: Color.fromARGB(255, 3, 85, 152),
                     ),
                     SizedBox(
                       width: 5,
@@ -65,7 +65,7 @@ class CarbonSignIn extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
-                        color: Colors.blue,
+                        color: Color.fromARGB(255, 3, 85, 152),
                       ),
                     )
                   ],

@@ -8,7 +8,7 @@ class SignOutAlert extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 164, 232, 255),
+      backgroundColor: const Color.fromARGB(255, 3, 85, 152).withOpacity(0.2),
       body: CustomAlertDialog(
           icon: (Icons.sign_language_outlined),
           iconColor: const Color.fromARGB(255, 255, 17, 0),

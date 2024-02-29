@@ -1,8 +1,4 @@
-import 'package:classapp/AppTemplates/Carbon/TRANSITION/SlideAnimation.dart';
 import 'package:flutter/material.dart';
-// import 'dart:math';
-// import 'package:google_fonts/google_fonts.dart';
-// import 'package:intl/intl.dart';
 
 // PRACTICE
 import 'package:classapp/AppTemplates/WIDGETS/Navigations.dart';
@@ -13,6 +9,7 @@ import 'package:classapp/AppTemplates/WIDGETS/REUSABLES/ALERTS/Alert.dart';
 import 'package:classapp/AppTemplates/WIDGETS/ANIMATIONS/FadeTransition.dart';
 import 'package:classapp/AppTemplates/WIDGETS/ANIMATIONS/AnimatedWidget.dart';
 import 'package:classapp/AppTemplates/WIDGETS/ANIMATIONS/SlideAnimation.dart';
+import 'package:classapp/AppTemplates/WIDGETS/ANIMATIONS/ItemAnimations.dart';
 
 import 'package:classapp/AppTemplates/WIDGETS/LAYOUTS/FormLayout.dart';
 import 'package:classapp/AppTemplates/WIDGETS/LAYOUTS/PageView.dart';
@@ -24,9 +21,7 @@ import 'package:classapp/AppTemplates/Carbon/DefaultScreenView.dart';
 
 import 'package:classapp/AppTemplates/Carbon/BOTTOMBAR/CarbonAppHome.dart';
 
-import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonAirtime.dart';
 import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonAirtimeDataCombo.dart';
-import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonData.dart';
 import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonBillTabs.dart';
 
 import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/FROMSUPPORT/CarbonAppPageView.dart';
@@ -77,8 +72,9 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(
-            seedColor: Color.fromARGB(255, 3, 85, 152),
-            surfaceTint: Colors.white, ),
+          seedColor: const Color.fromARGB(255, 3, 85, 152),
+          surfaceTint: Colors.white,
+        ),
         useMaterial3: true,
       ),
       darkTheme: ThemeData.dark(), // Dark theme
@@ -86,7 +82,7 @@ class MyApp extends StatelessWidget {
 
       // initialRoute: "navigation",
       initialRoute: "default",
-      // initialRoute: "alreadySignedIn",
+      // initialRoute: "signUp",
 
       routes: {
         //////////////// CARBON APP  //////////////
@@ -98,14 +94,14 @@ class MyApp extends StatelessWidget {
 
         //////// DEFAULTS
         "default": (context) => const DefaultScreen(),
-        "home": (context) => CarbonAppHome(),
+        "home": (context) => const CarbonAppHome(),
 
         //////// APPBAR
         "profile": (context) => CarbonProfile(),
         // WITHIN PROFILE
         "profileInfo": (context) => CarbonProfileInfo(),
-        "security": (context) => CarbonSecurity(),
-        "signOut": (context) => SignOutAlert(),
+        "security": (context) => const CarbonSecurity(),
+        "signOut": (context) => const SignOutAlert(),
 
         "support": (context) => CarbonSupport(),
         // WITHIN SUPPORT
@@ -121,8 +117,6 @@ class MyApp extends StatelessWidget {
         //////// QUICK ACCESS
         'dataAirtime': (context) => AirtimeDataCombo(),
         'payBills': (context) => CarbonBillTabs(),
-        'airtime': (context) => const CarbonAirtime(),
-        'buydata': (context) => const CarbonData(),
 
         //////////////  CLASSES -- APP LAYOUTS   //////////////
         'pureMath': (context) => const PureMathAppWidget(),
@@ -136,6 +130,9 @@ class MyApp extends StatelessWidget {
         'transitions': (context) => SlideAnimationExample(),
         'animation': (context) => MyAnimatedWidget(),
         'fadeTransition': (context) => FirstScreen(),
+        // 'itemTransition': (context) => AnimatedComponent(),
+        '/fsr': (context) => FstScreen(),
+        '/snd': (context) => SndScreen(),
 
         'navigation': (context) => const NavigationTabs(),
       },
