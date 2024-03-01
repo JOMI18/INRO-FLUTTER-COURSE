@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // PRACTICE
 import 'package:classapp/AppTemplates/WIDGETS/Navigations.dart';
 
+import 'package:classapp/AppTemplates/WIDGETS/REUSABLES/PROGRESSBARS/progressbars.dart';
 import 'package:classapp/AppTemplates/WIDGETS/REUSABLES/BOTTOMNAV/BottomNavigation.dart';
 import 'package:classapp/AppTemplates/WIDGETS/REUSABLES/ALERTS/Alert.dart';
 
@@ -16,31 +17,32 @@ import 'package:classapp/AppTemplates/WIDGETS/LAYOUTS/PageView.dart';
 import 'package:classapp/AppTemplates/WIDGETS/LAYOUTS/PureMath.dart';
 import 'package:classapp/AppTemplates/WIDGETS/LAYOUTS/Sliders+Switches.dart';
 
-// CARBON
-import 'package:classapp/AppTemplates/Carbon/DefaultScreenView.dart';
+// The-Betterlife-App
+import 'package:classapp/AppTemplates/The-Betterlife-App/DefaultScreenView.dart';
 
-import 'package:classapp/AppTemplates/Carbon/BOTTOMBAR/CarbonAppHome.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/BOTTOM-BAR/Home.dart';
 
-import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonAirtimeDataCombo.dart';
-import 'package:classapp/AppTemplates/Carbon/QUICKACCESS/CarbonBillTabs.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/QUICK-ACCESS/AirtimeDataCombo.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/QUICK-ACCESS/BillTabs.dart';
 
-import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/FROMSUPPORT/CarbonAppPageView.dart';
-import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/FROMSUPPORT/CarbonChallenge.dart';
-import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/FROMACCOUNT/CarbonProfileDetails.dart';
-import 'package:classapp/AppTemplates/Carbon/INDIRECTNAVIGATIONS/FROMACCOUNT/CarbonSecurity.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/INDIRECT-NAVIGATION/FROM-SUPPORT/LoanPageView.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/INDIRECT-NAVIGATION/FROM-SUPPORT/Challenge.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/INDIRECT-NAVIGATION/FROM-ACCOUNT/ProfileDetails.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/INDIRECT-NAVIGATION/FROM-ACCOUNT/Security.dart';
 
-import 'package:classapp/AppTemplates/Carbon/APPBAR/CarbonNotification.dart';
-import 'package:classapp/AppTemplates/Carbon/APPBAR/CarbonProfile.dart';
-import 'package:classapp/AppTemplates/Carbon/APPBAR/CarbonSupport.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/APP-BAR/Notification.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/APP-BAR/Profile.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/APP-BAR/Support.dart';
 
-import 'package:classapp/AppTemplates/Carbon/MONEYTRANSACTIONS/CarbonSendMoney.dart';
-import 'package:classapp/AppTemplates/Carbon/MONEYTRANSACTIONS/CarbonAddMoney.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/MONEY-TRANSACTIONS/SendMoney.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/MONEY-TRANSACTIONS/AddMoney.dart';
 
-import 'package:classapp/AppTemplates/Carbon/FORMS/CarbonAlreadySignedIn.dart';
-import 'package:classapp/AppTemplates/Carbon/FORMS/CarbonSignIn.dart';
-import 'package:classapp/AppTemplates/Carbon/FORMS/CarbonSignUp.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/FORMS/AlreadySignedIn.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/FORMS/SignIn.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/FORMS/SignUp.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/FORMS/ForgotPin.dart';
 
-import 'package:classapp/AppTemplates/Carbon/POPUPS/SignOutAlert.dart';
+import 'package:classapp/AppTemplates/The-Betterlife-App/POPUPS/SignOutAlert.dart';
 
 void main() {
   runApp(const MyApp());
@@ -81,42 +83,44 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light, // Default to light mode
 
       // initialRoute: "navigation",
-      initialRoute: "default",
-      // initialRoute: "signUp",
+      // initialRoute: "default",
+      initialRoute: "forgotPin",
 
       routes: {
-        //////////////// CARBON APP  //////////////
+        //////////////// The Betterlife APP  //////////////
 
         //////// ENTRY FORMS
-        "signUp": (context) => const CarbonSignUp(),
-        "logIn": (context) => const CarbonSignIn(),
-        "alreadySignedIn": (context) => const CarbonAlreadySignedIn(),
+        "signUp": (context) => const BSignUp(),
+        // "signUp": (context) => const BSignUps(), // refactoring
+        "logIn": (context) =>  BSignIn(),
+        "alreadySignedIn": (context) => const BAlreadySignedIn(),
+        "forgotPin": (context) => const BForgotPin(),
 
         //////// DEFAULTS
         "default": (context) => const DefaultScreen(),
-        "home": (context) => const CarbonAppHome(),
+        "home": (context) => const BHome(),
 
         //////// APPBAR
-        "profile": (context) => CarbonProfile(),
+        "profile": (context) => BProfile(),
         // WITHIN PROFILE
-        "profileInfo": (context) => CarbonProfileInfo(),
-        "security": (context) => const CarbonSecurity(),
+        "profileInfo": (context) => BProfileInfo(),
+        "security": (context) => const BSecurity(),
         "signOut": (context) => const SignOutAlert(),
 
-        "support": (context) => CarbonSupport(),
+        "support": (context) => BSupport(),
         // WITHIN SUPPORT
         'gettingLoan': (context) => const LoanPageView(),
         'challenge': (context) => const ChallengePage(),
 
-        "notify": (context) => const CarbonNotification(),
+        "notify": (context) => const BNotification(),
 
         //////// MONEY TAB
-        'addMoney': (context) => const CarbonAddMoney(),
-        'sendMoney': (context) => const CarbonSendMoney(),
+        'addMoney': (context) => const BAddMoney(),
+        'sendMoney': (context) => const BSendMoney(),
 
         //////// QUICK ACCESS
         'dataAirtime': (context) => AirtimeDataCombo(),
-        'payBills': (context) => CarbonBillTabs(),
+        'payBills': (context) => BillTabs(),
 
         //////////////  CLASSES -- APP LAYOUTS   //////////////
         'pureMath': (context) => const PureMathAppWidget(),
@@ -133,6 +137,7 @@ class MyApp extends StatelessWidget {
         // 'itemTransition': (context) => AnimatedComponent(),
         '/fsr': (context) => FstScreen(),
         '/snd': (context) => SndScreen(),
+        'progress': (context) => SignUpPage(),
 
         'navigation': (context) => const NavigationTabs(),
       },
