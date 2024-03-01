@@ -18,14 +18,14 @@ class NavigationTabs extends StatelessWidget {
             Column(
               children: [
                 const Text(
-                  "CARBON",
+                  "BETTERLIFE",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, "default");
                   },
-                  child: const Text("Carbon"),
+                  child: const Text("BetterLife"),
                 ),
               ],
             ),
