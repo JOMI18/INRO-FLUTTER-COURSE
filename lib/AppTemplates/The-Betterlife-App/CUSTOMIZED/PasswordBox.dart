@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class PasswordInputBox extends StatefulWidget {
-  const PasswordInputBox({super.key});
+class PasswordInputBox extends StatelessWidget {
+  PasswordInputBox(
+      {super.key, required this.textController, required this.focusnode});
 
-  @override
-  State<PasswordInputBox> createState() => _PasswordInputBoxState();
-}
-
-class _PasswordInputBoxState extends State<PasswordInputBox> {
+  late final TextEditingController textController;
+  late final FocusNode focusnode;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 45,
       child: TextFormField(
+        controller: textController,
+        focusNode: focusnode,
         maxLength: 1,
         keyboardType: TextInputType.number,
         decoration: InputDecoration(

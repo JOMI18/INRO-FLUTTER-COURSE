@@ -18,31 +18,7 @@ import 'package:classapp/AppTemplates/WIDGETS/LAYOUTS/PureMath.dart';
 import 'package:classapp/AppTemplates/WIDGETS/LAYOUTS/Sliders+Switches.dart';
 
 // The-Betterlife-App
-import 'package:classapp/AppTemplates/The-Betterlife-App/DefaultScreenView.dart';
-
-import 'package:classapp/AppTemplates/The-Betterlife-App/BOTTOM-BAR/Home.dart';
-
-import 'package:classapp/AppTemplates/The-Betterlife-App/QUICK-ACCESS/AirtimeDataCombo.dart';
-import 'package:classapp/AppTemplates/The-Betterlife-App/QUICK-ACCESS/BillTabs.dart';
-
-import 'package:classapp/AppTemplates/The-Betterlife-App/INDIRECT-NAVIGATION/FROM-SUPPORT/LoanPageView.dart';
-import 'package:classapp/AppTemplates/The-Betterlife-App/INDIRECT-NAVIGATION/FROM-SUPPORT/Challenge.dart';
-import 'package:classapp/AppTemplates/The-Betterlife-App/INDIRECT-NAVIGATION/FROM-ACCOUNT/ProfileDetails.dart';
-import 'package:classapp/AppTemplates/The-Betterlife-App/INDIRECT-NAVIGATION/FROM-ACCOUNT/Security.dart';
-
-import 'package:classapp/AppTemplates/The-Betterlife-App/APP-BAR/Notification.dart';
-import 'package:classapp/AppTemplates/The-Betterlife-App/APP-BAR/Profile.dart';
-import 'package:classapp/AppTemplates/The-Betterlife-App/APP-BAR/Support.dart';
-
-import 'package:classapp/AppTemplates/The-Betterlife-App/MONEY-TRANSACTIONS/SendMoney.dart';
-import 'package:classapp/AppTemplates/The-Betterlife-App/MONEY-TRANSACTIONS/AddMoney.dart';
-
-import 'package:classapp/AppTemplates/The-Betterlife-App/FORMS/AlreadySignedIn.dart';
-import 'package:classapp/AppTemplates/The-Betterlife-App/FORMS/SignIn.dart';
-import 'package:classapp/AppTemplates/The-Betterlife-App/FORMS/SignUp.dart';
-import 'package:classapp/AppTemplates/The-Betterlife-App/FORMS/ForgotPin.dart';
-
-import 'package:classapp/AppTemplates/The-Betterlife-App/POPUPS/SignOutAlert.dart';
+import "package:classapp/AppTemplates/The-Betterlife-App/ImportsPath.dart";
 
 void main() {
   runApp(const MyApp());
@@ -58,47 +34,39 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 3, 85, 152),
-          surfaceTint: Colors.white,
+          seedColor: const Color.fromARGB(255, 3, 53, 255),
+          surfaceVariant: Color.fromARGB(255, 187, 221, 250),
+          secondary: const Color.fromARGB(228, 211, 231, 255),
         ),
+        // textTheme: const TextTheme(
+        //   bodyLarge: TextStyle(color: Colors.black),
+        //   displayLarge: const TextStyle(color: Colors.red),
+        // ),
+        iconTheme: const IconThemeData(color: Color.fromARGB(255, 0, 71, 203)),
         useMaterial3: true,
       ),
-      darkTheme: ThemeData.dark(), // Dark theme
-      themeMode: ThemeMode.light, // Default to light mode
+
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.light,
 
       // initialRoute: "navigation",
-      // initialRoute: "default",
-      initialRoute: "forgotPin",
+      initialRoute: "indexPage",
+      // initialRoute: "forgotPin",
 
       routes: {
         //////////////// The Betterlife APP  //////////////
 
         //////// ENTRY FORMS
+        'indexPage': (context) => BIndexPage(),
         "signUp": (context) => const BSignUp(),
-        // "signUp": (context) => const BSignUps(), // refactoring
-        "logIn": (context) =>  BSignIn(),
+        "logIn": (context) => BSignIn(),
         "alreadySignedIn": (context) => const BAlreadySignedIn(),
         "forgotPin": (context) => const BForgotPin(),
 
         //////// DEFAULTS
         "default": (context) => const DefaultScreen(),
-        "home": (context) => const BHome(),
+        "home": (context) => BHome(),
 
         //////// APPBAR
         "profile": (context) => BProfile(),
@@ -115,7 +83,7 @@ class MyApp extends StatelessWidget {
         "notify": (context) => const BNotification(),
 
         //////// MONEY TAB
-        'addMoney': (context) => const BAddMoney(),
+        'addMoney': (context) => BAddMoney(),
         'sendMoney': (context) => const BSendMoney(),
 
         //////// QUICK ACCESS
@@ -169,3 +137,8 @@ class MyApp extends StatelessWidget {
 
 // CREATING NEW PROJECTS
 // flutter create {NAME}
+
+
+// to increase appbar height -- at the end of file
+  // @override
+  // Size get preferredSize => Size.fromHeight(60);
