@@ -40,6 +40,7 @@ class _TabBarsViewsState extends State<TabBarsViews>
 
   @override
   Widget build(BuildContext context) {
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
     String completeTabTitle = widget.dynamicTitle != null
         ? "${widget.dynamicTitle} ${widget.tabTitles[tabController.index]}"
         : widget.tabTitles[tabController.index];
@@ -53,10 +54,10 @@ class _TabBarsViewsState extends State<TabBarsViews>
               onTap: () {
                 Navigator.pop(context);
               },
-              child: const Icon(
+              child: Icon(
                 Icons.arrow_back_ios_new_rounded,
                 size: 25,
-                color: Color.fromARGB(255, 3, 85, 152),
+                color: colorScheme.primary,
               ),
             ),
             Text(completeTabTitle,
@@ -79,7 +80,7 @@ class _TabBarsViewsState extends State<TabBarsViews>
             ),
           ]),
           bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(0),
+            preferredSize: const Size.fromHeight(5),
             child: Container(
               decoration: const BoxDecoration(
                 border: Border(
@@ -100,8 +101,9 @@ class _TabBarsViewsState extends State<TabBarsViews>
         body: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
           // Display buttons as tabs
           Container(
-            color: const Color.fromARGB(228, 211, 231, 255),
+            color: colorScheme.secondary,
             child: TabBar(
+              padding: EdgeInsets.all(10),
               unselectedLabelColor: Colors.grey,
               controller: tabController,
               tabs: widget.tabTitles
@@ -124,9 +126,7 @@ class _TabBarsViewsState extends State<TabBarsViews>
               children: widget.tabViews,
             ),
           ),
-        ])
-      
-        );
+        ]));
   }
 
   @override

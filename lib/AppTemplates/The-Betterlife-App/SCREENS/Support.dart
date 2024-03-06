@@ -43,7 +43,7 @@ class BSupport extends StatelessWidget {
           ),
           Expanded(
             child: ComponentSlideIns(
-              beginOffset: const Offset(-2.0, 0.0),
+              beginOffset: const Offset(-4.0, 0.0),
               endOffset: const Offset(0.0, 0.0),
               duration: const Duration(milliseconds: 1000),
               child: ListView.builder(

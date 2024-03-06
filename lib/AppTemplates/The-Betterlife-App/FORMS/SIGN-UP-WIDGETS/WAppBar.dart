@@ -20,7 +20,7 @@ class _WelcomeAppBarState extends State<WelcomeAppBar> {
       automaticallyImplyLeading: false,
       centerTitle: true,
       title: ComponentSlideIns(
-        beginOffset: const Offset(0, -2),
+        beginOffset: const Offset(0, -4),
         duration: const Duration(milliseconds: 1200),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

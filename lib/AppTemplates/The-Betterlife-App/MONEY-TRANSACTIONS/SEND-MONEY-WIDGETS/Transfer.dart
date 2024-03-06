@@ -12,7 +12,7 @@ class TransferCard extends StatelessWidget {
       height: 200,
       width: 400,
       child: ComponentSlideIns(
-        beginOffset: Offset(2.0, 0.0),
+        beginOffset: Offset(4.0, 0.0),
         endOffset: Offset(0.0, 0.0),
         duration: Duration(milliseconds: 1200),
         child: Card(

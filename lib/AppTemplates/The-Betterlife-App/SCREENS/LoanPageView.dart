@@ -126,6 +126,7 @@ class _LoanPageViewState extends State<LoanPageView> {
                     backgroundColor: colorScheme.primary,
                     foregroundColor: Colors.white,
                     elevation: 5,
+                    fixedSize: const Size(800, 50),
                     padding: const EdgeInsets.all(12),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),

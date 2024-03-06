@@ -25,11 +25,11 @@ class _AccountState extends State<Account> {
   @override
   Widget build(BuildContext context) {
     return ComponentSlideIns(
-      beginOffset: const Offset(2.0, 0.0),
-      endOffset: const Offset(0.0, 0.0),
+      beginOffset: const Offset(4.0, 0.0),
       duration: const Duration(milliseconds: 1400),
       child: SizedBox(
         height: 170,
+        width: 500,
         child: Stack(
           children: [
             Positioned(
@@ -37,7 +37,6 @@ class _AccountState extends State<Account> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 13),
                 height: 140,
-                width: 550,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                   color: widget.colorScheme.primary,
@@ -128,7 +127,7 @@ class _AccountState extends State<Account> {
             ),
             Positioned(
                 bottom: 0,
-                left: 65,
+                left: 65, // this fits the phone screen not chrome
                 child: Container(
                   height: 48,
                   width: 260,
@@ -150,7 +149,7 @@ class _AccountState extends State<Account> {
                           // Navigator.pushNamed(context, "addMoney");
                           Navigator.of(context).push(
                             SlideAnimation(
-                              page:  BAddMoney(),
+                              page: BAddMoney(),
                             ),
                           );
                         },
@@ -165,8 +164,7 @@ class _AccountState extends State<Account> {
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             shape: const RoundedRectangleBorder(),
-                            backgroundColor: widget.colorScheme.surfaceVariant
-                            ),
+                            backgroundColor: widget.colorScheme.surfaceVariant),
                         onPressed: () {
                           Navigator.of(context).push(
                             SlideAnimation(

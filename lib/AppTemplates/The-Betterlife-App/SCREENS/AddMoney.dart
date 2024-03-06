@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "package:classapp/AppTemplates/The-Betterlife-App/ImportsPath.dart";
+import 'package:flutter/widgets.dart';
 
 class BAddMoney extends StatelessWidget {
   BAddMoney({
@@ -45,75 +47,66 @@ class BAddMoney extends StatelessWidget {
           child: Column(
             children: [
               ComponentSlideIns(
-                beginOffset: const Offset(0, -2.0),
+                beginOffset: const Offset(0, -4.0),
                 // duration: Duration(milliseconds: 00),
                 child: Container(
-                  padding: const EdgeInsets.all(5),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
                   height: 75,
                   decoration: BoxDecoration(
                       color: colorscheme.secondary,
                       borderRadius: BorderRadius.circular(8)),
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Column(
-                        children: [
-                          const SizedBox(
-                            height: 6,
-                          ),
-                          Icon(
-                            Icons.sunny,
-                            color: Theme.of(context).iconTheme.color,
-                            size: 24,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      SizedBox(
-                        width: 290,
-                        height: 70,
-                        child: Column(
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              "You earn monthly interest by storing money in your account.",
-                              textAlign: TextAlign.justify,
-                              style: TextStyle(fontSize: 14),
+                            Icon(
+                              Icons.sunny,
+                              color: Theme.of(context).iconTheme.color,
+                              size: 24,
                             ),
-                            GestureDetector(
-                              child: Text(
-                                "Tap here to learn more",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: Theme.of(context).iconTheme.color,
-                                ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    "You earn monthly interest by storing money in your account.",
+                                    textAlign: TextAlign.start,
+                                    style: TextStyle(fontSize: 14),
+                                  ),
+                                  GestureDetector(
+                                    child: Text(
+                                      "Tap here to learn more",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                        color:
+                                            Theme.of(context).iconTheme.color,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        width: 24,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          const SizedBox(
-                            height: 6,
-                          ),
-                          CircleAvatar(
-                            backgroundColor: Colors.white,
-                            radius: 10,
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.grey.shade900,
-                              size: 14,
-                            ),
-                          ),
-                        ],
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 10,
+                        child: Icon(
+                          Icons.close,
+                          color: Colors.grey.shade900,
+                          size: 14,
+                        ),
                       ),
                     ],
                   ),
@@ -143,13 +136,13 @@ class BAddMoney extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        SizedBox(
-                            width: 378,
-                            child: OptionsCard(
-                                title: "USSD",
-                                icon: Icons.tag,
-                                subText:
-                                    "Transfer using your other bank's USSD code")),
+                        Expanded(
+                          child: OptionsCard(
+                              title: "USSD",
+                              icon: Icons.tag,
+                              subText:
+                                  "Transfer using your other bank's USSD code"),
+                        ),
                       ],
                     ),
                     const SizedBox(
@@ -157,8 +150,7 @@ class BAddMoney extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        SizedBox(
-                          width: 378,
+                        Expanded(
                           child: OptionsCard(
                               title: "Debit Card",
                               icon: Icons.credit_card,
@@ -176,4 +168,3 @@ class BAddMoney extends StatelessWidget {
     );
   }
 }
-

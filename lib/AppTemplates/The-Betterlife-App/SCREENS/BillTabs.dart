@@ -81,6 +81,11 @@ class BillTabs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    int crossAxisCount =
+        screenWidth ~/ 120; // Calculate cross-axis count based on item width
+    double itemWidth =
+        (screenWidth - 12 * (crossAxisCount + 1)) / crossAxisCount;
     return Scaffold(
       appBar: const BAppBars(title: "Pay a bill"),
       body: SingleChildScrollView(
@@ -99,32 +104,40 @@ class BillTabs extends StatelessWidget {
               SizedBox(
                 child: TextFormField(
                   decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(
-                        vertical: 10, // Adjust vertical padding as needed
-                        horizontal: 40, // Adjust horizontal padding as needed
+                    contentPadding: const EdgeInsets.symmetric(
+                      vertical: 10, // Adjust vertical padding as needed
+                      horizontal: 40, // Adjust horizontal padding as needed
+                    ),
+                    filled: true,
+                    alignLabelWithHint: true,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    fillColor: Colors.grey.shade200,
+                    hintText: "Search by biller name",
+                    hintStyle: const TextStyle(
+                      color: Color.fromARGB(255, 133, 133, 133),
+                    ),
+                    prefixIcon: GestureDetector(
+                      child: Icon(
+                        Icons.search,
+                        color: Color.fromARGB(255, 65, 65, 65),
+                        size: 28,
                       ),
-                      filled: true,
-                      alignLabelWithHint: true,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      fillColor: Colors.grey.shade200,
-                      hintText: "Search by biller name",
-                      hintStyle: const TextStyle(
-                        color: Color.fromARGB(255, 133, 133, 133),
-                      ),
-                      prefixIcon: Container(
-                        height: 0,
-                        decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.horizontal(
-                                right: Radius.circular(0),
-                                left: Radius.circular(8)),
-                            color: Color.fromARGB(183, 148, 148, 148)),
-                        child: const Icon(
-                          Icons.search,
-                          color: Color.fromARGB(255, 65, 65, 65),
-                          size: 28,
-                        ),
-                      )),
+                    ),
+                    // prefixIcon: Container(
+                    //   height: 0,
+                    //   decoration: const BoxDecoration(
+                    //       borderRadius: BorderRadius.horizontal(
+                    //           right: Radius.circular(0),
+                    //           left: Radius.circular(8)),
+                    //       color: Color.fromARGB(183, 148, 148, 148)),
+                    //   child: const Icon(
+                    //     Icons.search,
+                    //     color: Color.fromARGB(255, 65, 65, 65),
+                    //     size: 28,
+                    //   ),
+                    // ),
+                  ),
                 ),
               ),
               const SizedBox(
@@ -183,7 +196,7 @@ class BillTabs extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 14.0, vertical: 5),
+                              horizontal: 14.0, vertical: 12),
                           child: const Text("Billers",
                               style: TextStyle(
                                   fontWeight: FontWeight.w600, fontSize: 18)),
@@ -191,13 +204,16 @@ class BillTabs extends StatelessWidget {
                         Expanded(
                           child: ComponentSlideIns(
                             beginOffset: Offset(0.0, 4.0),
-                            endOffset: Offset(0.0, 0.0),
                             duration: Duration(milliseconds: 1400),
                             child: GridView.builder(
                               gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                                mainAxisSpacing: 0,
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                // crossAxisCount: 3,
+                                childAspectRatio: (itemWidth /
+                                    100), // Adjust item height based on width
+                                crossAxisCount: crossAxisCount,
+
+                                mainAxisSpacing: 20,
                                 crossAxisSpacing: 0,
                               ),
                               itemCount: items.length,

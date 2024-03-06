@@ -24,8 +24,8 @@ class _BIndexPageState extends State<BIndexPage>
           const Duration(milliseconds: 1000), // Adjust the duration as needed
     )..repeat();
 
-    Future.delayed(
-        Duration(milliseconds: 3000), () => {controller.stop(), setSignUp()});
+    Future.delayed(const Duration(milliseconds: 3000),
+        () => {controller.stop(), setSignUp()});
   }
 
   void setLogin() async {
@@ -50,14 +50,6 @@ class _BIndexPageState extends State<BIndexPage>
     }
   }
 
-  
-
-  // void clearSharedPreferences() async {
-  //   SharedPreferences prefer = await SharedPreferences.getInstance();
-  //   await prefer.clear();
-  //   // print("SharedPreferences cache cleared.");
-  // }
-
   @override
   void dispose() {
     controller.dispose();
@@ -70,20 +62,28 @@ class _BIndexPageState extends State<BIndexPage>
     // ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      // backgroundColor: colorScheme.primary,
+      // backgroundColor: colorScheme.secondary,
       // backgroundColor: Colors.white,
       body: ComponentSlideIns(
-        beginOffset: Offset(0, -4),
-        duration: Duration(milliseconds: 1400),
+        beginOffset: const Offset(0, -4),
+        duration: const Duration(milliseconds: 1400),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Welcome to",
-                style: TextStyle(fontSize: 50, fontWeight: FontWeight.w800),
+              Image.asset(
+                "lib/Assets/img/app-logo.jpg",
+                height: 200,
               ),
-              SizedBox(
+              const SizedBox(
+                height: 20,
+              ),
+              const Text(
+                "Welcome to the Betterlife App",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 48, fontWeight: FontWeight.w800),
+              ),
+              const SizedBox(
                 height: 50,
               ),
               RotationTransition(
@@ -91,7 +91,7 @@ class _BIndexPageState extends State<BIndexPage>
                 child: Image.network(
                   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr4lLaicZ8wTR375x6xE2nlkRFdus6ClH33Llwp-d6gemtJO-KpL_y4ySGEnOlGn7U5ZM&usqp=CAU",
                   fit: BoxFit.cover,
-                  height: 200,
+                  height: 60,
                 ),
               ),
             ],

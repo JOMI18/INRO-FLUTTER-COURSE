@@ -71,7 +71,7 @@ class _BAlreadySignedInState extends State<BAlreadySignedIn> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ComponentSlideIns(
-                        beginOffset: const Offset(0, -2),
+                        beginOffset: const Offset(0, -4),
                         duration: const Duration(milliseconds: 1200),
                         child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -131,7 +131,7 @@ class _BAlreadySignedInState extends State<BAlreadySignedIn> {
             Column(
               children: [
                 ComponentSlideIns(
-                  beginOffset: const Offset(2, 0),
+                  beginOffset: const Offset(4, 0),
                   duration: const Duration(milliseconds: 1200),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

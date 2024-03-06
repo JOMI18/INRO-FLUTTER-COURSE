@@ -12,45 +12,43 @@ class Airtime extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                "Beneficiary phone number",
-                style: TextStyle(fontWeight: FontWeight.w600),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              SizedBox(
-                child: TextFormField(
-                  decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(
-                        vertical: 10, // Adjust vertical padding as needed
-                        horizontal: 40, // Adjust horizontal padding as needed
-                      ),
-                      filled: true,
-                      alignLabelWithHint: true,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      fillColor: Colors.grey.shade200,
-                      hintText: " Enter phone number",
-                      hintStyle: const TextStyle(
-                        color: Color.fromARGB(255, 133, 133, 133),
-                      ),
-                      prefixIcon: Container(
-                        height: 0,
-                        decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.horizontal(
-                                right: Radius.circular(0),
-                                left: Radius.circular(8)),
-                            color: Color.fromARGB(183, 148, 148, 148)),
-                        child: const Icon(
-                          Icons.phone_android_rounded,
-                          color: Color.fromARGB(255, 65, 65, 65),
-                          size: 28,
-                        ),
-                      )),
-                ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Beneficiary phone number",
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  SizedBox(
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.symmetric(
+                            vertical: 10, // Adjust vertical padding as needed
+                            horizontal:
+                                40, // Adjust horizontal padding as needed
+                          ),
+                          filled: true,
+                          alignLabelWithHint: true,
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                          fillColor: Colors.grey.shade200,
+                          hintText: " Enter phone number",
+                          hintStyle: const TextStyle(
+                            color: Color.fromARGB(255, 133, 133, 133),
+                          ),
+                          prefixIcon: const Icon(
+                            Icons.phone_android_rounded,
+                            color: Color.fromARGB(255, 65, 65, 65),
+                            size: 28,
+                          )),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(
                 height: 30,
@@ -59,7 +57,7 @@ class Airtime extends StatelessWidget {
                 height: 200,
                 width: 400,
                 child: ComponentSlideIns(
-                  beginOffset: const Offset(-4.0, 0),
+                  beginOffset: const Offset(4.0, 0),
                   duration: const Duration(milliseconds: 1200),
                   child: Card(
                     elevation: 4,
@@ -137,7 +135,7 @@ class Airtime extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 80,
+                height: 40,
               ),
               ElevatedButton(
                   onPressed: null,

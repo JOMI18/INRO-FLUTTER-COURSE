@@ -87,27 +87,25 @@ class BHome extends StatelessWidget {
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-            child: Column(
-              children: [
-                Column(
-                  children: [
-                    Account(colorScheme: colorScheme),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    Upgrade(colorScheme: colorScheme),
-                    const SizedBox(
-                      height: 25,
-                    ),
-                    Access(colorScheme: colorScheme),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    Transactions(colorScheme: colorScheme)
-                  ],
-                )
-              ],
+            padding: const EdgeInsets.fromLTRB(15, 10, 15, 0),
+            child: Expanded(
+              child: Column(
+                children: [
+                  Account(colorScheme: colorScheme),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Upgrade(colorScheme: colorScheme),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Access(colorScheme: colorScheme),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Transactions(colorScheme: colorScheme)
+                ],
+              ),
             ),
           ),
         ),
