@@ -12,8 +12,7 @@ class BeneficiaryCard extends StatelessWidget {
       height: 250,
       width: 400,
       child: ComponentSlideIns(
-        beginOffset: Offset(2.0, 0.0),
-        endOffset: Offset(0.0, 0.0),
+        beginOffset: Offset(4.0, 0.0),
         duration: Duration(milliseconds: 1300),
         child: Card(
           elevation: 8,

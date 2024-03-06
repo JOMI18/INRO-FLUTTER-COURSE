@@ -48,7 +48,7 @@ class HelpPopup extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 21, vertical: 2),
+          padding: EdgeInsets.symmetric(horizontal: 21, vertical: 12),
           child: Text(
             "Having issues logging in?",
             style: TextStyle(fontSize: 21, fontWeight: FontWeight.w700),
@@ -58,56 +58,42 @@ class HelpPopup extends StatelessWidget {
           height: 10,
           color: Color(0x77000000),
         ),
-        SizedBox(
-          height: 100,
+        Expanded(
           child: ListView.builder(
             itemCount: item.length,
             itemBuilder: (context, index) {
-              return Padding(
-                padding: EdgeInsets.symmetric(horizontal: 21, vertical: 4),
-                child: Column(
-                  children: [
-                    GestureDetector(
+              return Column(
+                children: [
+                  ListTile(
+                    leading: CircleAvatar(
+                      child: Icon(
+                        item[index]["icon"],
+                        size: 18,
+                        color: Theme.of(context).iconTheme.color,
+                      ),
+                    ),
+                    trailing: const Icon(
+                      Icons.arrow_forward_ios_outlined,
+                      size: 18,
+                      color: Colors.black,
+                    ),
+                    title: GestureDetector(
                       onTap: () {
                         Navigator.pushNamed(context, item[index]["route"]);
                       },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              CircleAvatar(
-                                child: Icon(
-                                  item[index]["icon"],
-                                  size: 18,
-                                  color: Theme.of(context).iconTheme.color,
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 15,
-                              ),
-                              Text(
-                                item[index]["text"],
-                                style: const TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w500),
-                              ),
-                            ],
-                          ),
-                          const Icon(
-                            Icons.arrow_forward_ios_outlined,
-                            size: 18,
-                            color: Colors.black,
-                          )
-                        ],
+                      child: Text(
+                        item[index]["text"],
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w500),
                       ),
                     ),
-                    if (index != item.length - 1)
-                      const Divider(
-                        height: 14,
-                        color: Color(0x77000000),
-                      ),
-                  ],
-                ),
+                  ),
+                  if (index != item.length - 1)
+                    const Divider(
+                      height: 14,
+                      color: Color(0x77000000),
+                    ),
+                ],
               );
             },
           ),
@@ -127,11 +113,18 @@ class CalendarPicker extends StatefulWidget {
 }
 
 class _CalendarPickerState extends State<CalendarPicker> {
-  DateTime selectedDate = DateTime.now();
+  late DateTime selectedDate;
+  @override
+  void initState() {
+    super.initState();
+    selectedDate = DateTime.now()
+        .subtract(Duration(days: 365 * 25)); // Set default DOB to 25 years ago
+  }
+
   @override
   Widget build(BuildContext context) {
     return CupertinoDatePicker(
-      mode: CupertinoDatePickerMode.dateAndTime,
+      mode: CupertinoDatePickerMode.date,
       initialDateTime: selectedDate,
       onDateTimeChanged: (DateTime newDateTime) {
         setState(() {

@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:classapp/AppTemplates/The-Betterlife-App/ImportsPath.dart';
+import 'package:flutter/widgets.dart';
 
 class Upgrade extends StatelessWidget {
   const Upgrade({super.key, required this.colorScheme});
@@ -8,15 +10,16 @@ class Upgrade extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ComponentSlideIns(
-      beginOffset: const Offset(-2.0, 0.0),
+      beginOffset: const Offset(-4.0, 0.0),
       endOffset: const Offset(0.0, 0.0),
       duration: const Duration(milliseconds: 1300),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
             width: 380,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(15),
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.3), // Shadow color

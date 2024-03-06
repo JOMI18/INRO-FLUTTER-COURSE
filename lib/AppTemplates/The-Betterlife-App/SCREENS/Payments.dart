@@ -66,6 +66,14 @@ class BPayments extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    int crossAxisCount =
+        screenWidth ~/ 200; // Calculate cross-axis count based on item width
+    double itemWidth =
+        (screenWidth - 12 * (crossAxisCount + 1)) / crossAxisCount;
+    // double itemWidth =
+    //     (screenWidth - 48) / 2; // Subtracting padding and cross axis spacing
+
     return Scaffold(
       appBar: const BAppBars(
         title: "Payments",
@@ -74,10 +82,13 @@ class BPayments extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         child: Expanded(
           child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 0,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              // crossAxisCount: 2,
+              crossAxisCount: crossAxisCount,
+              mainAxisSpacing: 20,
               crossAxisSpacing: 20,
+              childAspectRatio:
+                  (itemWidth / 180), // Adjust item height based on width
             ),
             itemCount: items.length,
             itemBuilder: ((context, index) {

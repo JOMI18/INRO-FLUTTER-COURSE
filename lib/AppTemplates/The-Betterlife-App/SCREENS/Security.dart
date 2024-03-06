@@ -14,7 +14,7 @@ class BSecurity extends StatelessWidget {
         child: Column(
           children: [
             ComponentSlideIns(
-              beginOffset: const Offset(-2.0, 0.0),
+              beginOffset: const Offset(-4.0, 0.0),
               duration: const Duration(milliseconds: 1000),
               child: Column(
                 children: [
@@ -51,7 +51,7 @@ class BSecurity extends StatelessWidget {
               ),
             ),
             ComponentSlideIns(
-              beginOffset: const Offset(-2.0, 0.0),
+              beginOffset: const Offset(-4.0, 0.0),
               duration: const Duration(milliseconds: 1200),
               child: Column(
                 children: [
@@ -80,7 +80,7 @@ class BSecurity extends StatelessWidget {
               ),
             ),
             ComponentSlideIns(
-              beginOffset: const Offset(-2.0, 0.0),
+              beginOffset: const Offset(-4.0, 0.0),
               duration: const Duration(milliseconds: 1300),
               child: Column(
                 children: [

@@ -35,29 +35,35 @@ class Transactions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ComponentSlideIns(
-      beginOffset: const Offset(-2.0, 0.0),
-      endOffset: const Offset(0.0, 0.0),
+      beginOffset: const Offset(-4.0, 0.0),
       duration: const Duration(milliseconds: 1400),
       child: Column(children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              "Transactions",
-              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-            ),
-            GestureDetector(
-              onTap: () {},
-              child: Text("View All",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                      color: colorScheme.primary)),
-            ),
-          ],
+        SizedBox(
+          width: 800,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                "Transactions",
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Text("View All",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                        color: colorScheme.primary)),
+              ),
+            ],
+          ),
         ),
         SizedBox(
-          height: 400,
+          height: 20,
+        ),
+        SizedBox(
+          height: 320,
+          width: 800,
           child: ListView.builder(
             itemCount: transactions.length,
             itemBuilder: (context, index) {
@@ -88,9 +94,10 @@ class Transactions extends StatelessWidget {
                           .format(transactions[index]['date']),
                     ),
                   ),
-                  const SizedBox(
-                    height: 6,
-                  )
+                  if (index != items.length - 1)
+                    const SizedBox(
+                      height: 6,
+                    )
                 ],
               );
             },

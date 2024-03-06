@@ -15,7 +15,7 @@ class _buildPINFieldState extends State<buildPINField> {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return ComponentSlideIns(
-      beginOffset: const Offset(-2, 0),
+      beginOffset: const Offset(-4, 0),
       duration: const Duration(milliseconds: 1200),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +60,7 @@ class _buildConfirmPINFieldState extends State<buildConfirmPINField> {
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     return ComponentSlideIns(
-      beginOffset: const Offset(2, 0),
+      beginOffset: const Offset(4, 0),
       duration: const Duration(milliseconds: 1200),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

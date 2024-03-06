@@ -23,7 +23,7 @@ class BProfileInfo extends StatelessWidget {
                           title: "Are you sure you want to close your account?",
                           content: Column(children: [
                             ComponentSlideIns(
-                              beginOffset: const Offset(2.0, 0.0),
+                              beginOffset: const Offset(4.0, 0.0),
                               duration: const Duration(milliseconds: 600),
                               child: const Text(
                                 "Please give us 1 working day to review this request so that we can:",
@@ -37,7 +37,7 @@ class BProfileInfo extends StatelessWidget {
                               height: 20,
                             ),
                             ComponentSlideIns(
-                              beginOffset: const Offset(2.0, 0.0),
+                              beginOffset: const Offset(4.0, 0.0),
                               duration: const Duration(milliseconds: 700),
                               child: const Text(
                                 "1)  Ensure adherence to CBN regulations around transaction history",
@@ -51,7 +51,7 @@ class BProfileInfo extends StatelessWidget {
                               height: 20,
                             ),
                             ComponentSlideIns(
-                              beginOffset: const Offset(2.0, 0.0),
+                              beginOffset: const Offset(4.0, 0.0),
                               duration: const Duration(milliseconds: 800),
                               child: const Text(
                                 "2)  Ensure there is no balance remaining on your account or loan repayments to be settled",
@@ -235,6 +235,6 @@ class BProfileInfo extends StatelessWidget {
         appBar: const BAppBars(
           title: "Profile",
         ),
-        body: ProfileDetailsBody());
+        body: SingleChildScrollView(child: ProfileDetailsBody()));
   }
 }

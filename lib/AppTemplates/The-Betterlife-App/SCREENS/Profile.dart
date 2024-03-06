@@ -1,4 +1,5 @@
 import 'package:classapp/AppTemplates/The-Betterlife-App/ImportsPath.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 
@@ -80,84 +81,95 @@ class BProfile extends StatelessWidget {
     return Scaffold(
       appBar: const BAppBars(title: "Account"),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 2),
         child: Column(
           children: [
-            ComponentSlideIns(
-              beginOffset: const Offset(0.0, -2.0),
-              endOffset: const Offset(0.0, 0.0),
-              duration: const Duration(milliseconds: 1000),
-              child: Container(
-                width: 400,
-                padding: const EdgeInsets.all(12),
-                color: colorScheme.primary,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(width: 1),
-                        borderRadius: BorderRadius.circular(50),
-                      ),
-                      child: const Icon(
-                        Icons.spa_rounded,
-                        size: 41,
-                      ),
-                    ),
-                    const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Jonathan Smith Reyes",
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w900,
-                              letterSpacing: 1.1),
-                        ),
-                        Text("Client ID:2345678567",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13,
-                              color: Colors.white,
-                            )),
-                        Text("Joined Feb 05, 2023",
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.white,
-                            ))
-                      ],
-                    ),
-                    Container(
-                        padding: const EdgeInsets.all(6),
-                        height: 35,
-                        width: 120,
-                        decoration: BoxDecoration(
-                          color: const Color(0xD5000000),
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: const Text(
-                          "LEVEL 1",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
+            Row(
+              children: [
+                Expanded(
+                  child: ComponentSlideIns(
+                    beginOffset: const Offset(0.0, -4.0),
+                    endOffset: const Offset(0.0, 0.0),
+                    duration: const Duration(milliseconds: 1000),
+                    child: Container(
+                      padding: const EdgeInsets.all(12),
+                      color: colorScheme.primary,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  border: Border.all(width: 1),
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                child: const Icon(
+                                  Icons.spa_rounded,
+                                  size: 41,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              const Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Jonathan Smith Reyes",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w900,
+                                        letterSpacing: 1.1),
+                                  ),
+                                  Text("Client ID:2345678567",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 13,
+                                        color: Colors.white,
+                                      )),
+                                  Text("Joined Feb 05, 2023",
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.white,
+                                      ))
+                                ],
+                              ),
+                            ],
                           ),
-                        )),
-                  ],
+                          Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 24, vertical: 6),
+                              decoration: BoxDecoration(
+                                color: const Color(0xD5000000),
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: const Text(
+                                "LEVEL 1",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                ),
+                              )),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
             const SizedBox(
               height: 12,
             ),
             Expanded(
               child: ComponentSlideIns(
-                beginOffset: const Offset(-2.0, 0.0),
+                beginOffset: const Offset(-4.0, 0.0),
                 duration: const Duration(milliseconds: 1200),
                 child: ListView.builder(
                     itemCount: items.length,
@@ -175,7 +187,6 @@ class BProfile extends StatelessWidget {
                             Navigator.pushNamed(context, items[index]["route"]);
                           }
                         },
-                     
                         child: Column(
                           children: [
                             ListTile(

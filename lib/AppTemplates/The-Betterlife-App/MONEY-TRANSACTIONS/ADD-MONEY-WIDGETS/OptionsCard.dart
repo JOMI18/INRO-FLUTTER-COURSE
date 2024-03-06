@@ -16,7 +16,7 @@ class OptionsCard extends StatelessWidget {
       elevation: 4,
       surfaceTintColor: Colors.white,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

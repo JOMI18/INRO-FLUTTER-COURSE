@@ -22,7 +22,7 @@ class BNotification extends StatelessWidget {
               height: 20,
             ),
             ComponentSlideIns(
-              beginOffset: const Offset(-2.0, 0.0),
+              beginOffset: const Offset(-4.0, 0.0),
               duration: const Duration(milliseconds: 1200),
               child: const Text(
                   "OOPS! There is no notification available, check back later!",

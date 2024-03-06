@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:classapp/AppTemplates/The-Betterlife-App/ImportsPath.dart';
 
@@ -35,10 +36,10 @@ class Access extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ComponentSlideIns(
-      beginOffset: const Offset(2.0, 0.0),
-      endOffset: const Offset(0.0, 0.0),
+      beginOffset: const Offset(4.0, 0.0),
       duration: const Duration(milliseconds: 1300),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
@@ -50,6 +51,7 @@ class Access extends StatelessWidget {
           ),
           SizedBox(
             height: 80,
+            width: 380,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: items.length,
@@ -95,9 +97,10 @@ class Access extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        width: 20,
-                      )
+                      if (index != items.length - 1)
+                        const SizedBox(
+                          width: 20,
+                        )
                     ],
                   );
                 }),

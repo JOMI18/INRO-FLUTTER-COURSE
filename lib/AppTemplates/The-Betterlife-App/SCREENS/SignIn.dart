@@ -22,7 +22,7 @@ class _BSignInState extends State<BSignIn> {
     return Scaffold(
       appBar: const WelcomeAppBar(),
       bottomNavigationBar: ComponentSlideIns(
-        beginOffset: const Offset(2, 0),
+        beginOffset: const Offset(4, 0),
         duration: const Duration(milliseconds: 1200),
         child: BottomAppBar(
             surfaceTintColor: Colors.white,
@@ -66,7 +66,7 @@ class _BSignInState extends State<BSignIn> {
         child: Column(
           children: [
             ComponentSlideIns(
-              beginOffset: const Offset(2, 0),
+              beginOffset: const Offset(4, 0),
               duration: const Duration(milliseconds: 1200),
               child: Row(
                 children: [

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:classapp/AppTemplates/The-Betterlife-App/ImportsPath.dart';
+import 'package:flutter/widgets.dart';
 
 class ChallengePage extends StatelessWidget {
   const ChallengePage({super.key});
@@ -190,43 +191,50 @@ class ChallengePage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: ComponentSlideIns(
-                              beginOffset: const Offset(-4.0, 0.0),
-                              duration: const Duration(milliseconds: 1000),
-                              child: Container(
-                                height: 100,
-                                width: 380,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color:
-                                        const Color.fromARGB(255, 3, 85, 152),
-                                    width: 2,
-                                  ),
-                                  color:
-                                      const Color.fromARGB(241, 193, 221, 255),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: const Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.cloud_upload,
-                                      size: 40,
-                                    ),
-                                    SizedBox(height: 10),
-                                    Text(
-                                      'Tap to upload transaction image',
-                                      style: TextStyle(
-                                        fontSize: 18,
+                          Row(
+                            children: [
+                              Expanded(
+                                child: GestureDetector(
+                                  onTap: () {},
+                                  child: ComponentSlideIns(
+                                    beginOffset: const Offset(-4.0, 0.0),
+                                    duration:
+                                        const Duration(milliseconds: 1000),
+                                    child: Container(
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: const Color.fromARGB(
+                                              255, 3, 85, 152),
+                                          width: 2,
+                                        ),
+                                        color: const Color.fromARGB(
+                                            241, 193, 221, 255),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: const Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.cloud_upload,
+                                            size: 40,
+                                          ),
+                                          SizedBox(height: 10),
+                                          Text(
+                                            'Tap to upload transaction image',
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                  ],
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
+                            ],
+                          )
                         ],
                       ),
                     ),
@@ -237,6 +245,7 @@ class ChallengePage extends StatelessWidget {
             Expanded(
               flex: 2,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
                     onPressed: () {},

@@ -36,7 +36,7 @@ class _BForgotPinState extends State<BForgotPin> {
     String appBarTitle = steps[currentStep]['title'] as String;
     return Scaffold(
       bottomNavigationBar: ComponentSlideIns(
-        beginOffset: Offset(0, 2),
+        beginOffset: Offset(0, 4),
         duration: Duration(milliseconds: 600),
         child: BottomAppBar(
             surfaceTintColor: Colors.white,

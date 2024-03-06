@@ -71,7 +71,7 @@ class ProfileDetailsBody extends StatelessWidget {
         SizedBox(
           height: 440,
           child: ComponentSlideIns(
-            beginOffset: const Offset(2.0, 0.0),
+            beginOffset: const Offset(4.0, 0.0),
             duration: const Duration(milliseconds: 1300),
             child: ListView.builder(
                 itemCount: items.length,
