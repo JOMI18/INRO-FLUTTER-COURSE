@@ -23,26 +23,26 @@ class TabBarsViews extends StatefulWidget {
 
 class _TabBarsViewsState extends State<TabBarsViews>
     with SingleTickerProviderStateMixin {
-  late TabController _tabController;
+  late TabController tabController;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(
+    tabController = TabController(
       length: widget.tabTitles.length,
       vsync: this,
       initialIndex: 0, // Initially select the first tab
     );
-    _tabController.addListener(() {
-      widget.onTabChanged(_tabController.index); // Notify the callback
+    tabController.addListener(() {
+      widget.onTabChanged(tabController.index); // Notify the callback
     });
   }
 
   @override
   Widget build(BuildContext context) {
     String completeTabTitle = widget.dynamicTitle != null
-        ? "${widget.dynamicTitle} ${widget.tabTitles[_tabController.index]}"
-        : widget.tabTitles[_tabController.index];
+        ? "${widget.dynamicTitle} ${widget.tabTitles[tabController.index]}"
+        : widget.tabTitles[tabController.index];
 
     return Scaffold(
         appBar: AppBar(
@@ -93,7 +93,7 @@ class _TabBarsViewsState extends State<TabBarsViews>
           ),
 
           // bottom: TabBar(
-          //   controller: _tabController,
+          //   controller: tabController,
           //   tabs: widget.tabTitles.map((title) => Tab(text: title)).toList(),
           // ),
         ),
@@ -103,13 +103,13 @@ class _TabBarsViewsState extends State<TabBarsViews>
             color: const Color.fromARGB(228, 211, 231, 255),
             child: TabBar(
               unselectedLabelColor: Colors.grey,
-              controller: _tabController,
+              controller: tabController,
               tabs: widget.tabTitles
                   .map(
                     (title) => TextButton(
                       onPressed: () {
                         // Update the selected tab
-                        _tabController.index = widget.tabTitles.indexOf(title);
+                        tabController.index = widget.tabTitles.indexOf(title);
                       },
                       child: Text(title),
                     ),
@@ -120,21 +120,18 @@ class _TabBarsViewsState extends State<TabBarsViews>
           // Display tab views
           Expanded(
             child: TabBarView(
-              controller: _tabController,
+              controller: tabController,
               children: widget.tabViews,
             ),
           ),
         ])
-        // body: TabBarView(
-        //   controller: _tabController,
-        //   children: widget.tabViews,
-        // ),
+      
         );
   }
 
   @override
   void dispose() {
-    _tabController.dispose();
+    tabController.dispose();
     super.dispose();
   }
 }
